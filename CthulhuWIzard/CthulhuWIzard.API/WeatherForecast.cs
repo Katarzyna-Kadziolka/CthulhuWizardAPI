@@ -1,4 +1,4 @@
-namespace CthulhuWIzard.API;
+namespace CthulhuWizard.API;
 
 public class WeatherForecast {
     public DateTime Date { get; set; }

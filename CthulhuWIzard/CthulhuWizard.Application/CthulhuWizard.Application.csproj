@@ -14,4 +14,8 @@
       <PackageReference Include="SendGrid" Version="9.25.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CthulhuWizard.Persistence\CthulhuWizard.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>

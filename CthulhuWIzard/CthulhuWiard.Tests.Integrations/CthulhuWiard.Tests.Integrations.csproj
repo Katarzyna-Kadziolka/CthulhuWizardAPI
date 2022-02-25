@@ -17,4 +17,9 @@
         <PackageReference Include="coverlet.collector" Version="3.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CthulhuWizard.API\CthulhuWizard.API.csproj" />
+      <ProjectReference Include="..\CthulhuWizard.Tests.Shared\CthulhuWizard.Tests.Shared.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Persistence", "CthulhuWizard.Persistence\CthulhuWizard.Persistence.csproj", "{3EA704F6-D3EC-4B7F-8700-3E75D59C3344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A0BEBA3B-8754-465D-A8B9-A1D2BAB63906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Unit", "CthulhuWizard.Tests.Unit\CthulhuWizard.Tests.Unit.csproj", "{AB11D576-25E3-437A-9987-86753006547A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,12 @@ Global
 		{3EA704F6-D3EC-4B7F-8700-3E75D59C3344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EA704F6-D3EC-4B7F-8700-3E75D59C3344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EA704F6-D3EC-4B7F-8700-3E75D59C3344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB11D576-25E3-437A-9987-86753006547A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB11D576-25E3-437A-9987-86753006547A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB11D576-25E3-437A-9987-86753006547A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB11D576-25E3-437A-9987-86753006547A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB11D576-25E3-437A-9987-86753006547A} = {A0BEBA3B-8754-465D-A8B9-A1D2BAB63906}
 	EndGlobalSection
 EndGlobal

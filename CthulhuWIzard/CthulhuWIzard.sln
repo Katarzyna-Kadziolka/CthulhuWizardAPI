@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.API", "CthulhuWizard.API\CthulhuWizard.API.csproj", "{EB85D3A8-D2D7-4BB1-855D-1AAFD2D19D65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Application", "CthulhuWizard.Application\CthulhuWizard.Application.csproj", "{16062BE3-6680-47AC-8E67-C58A81FCE192}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{EB85D3A8-D2D7-4BB1-855D-1AAFD2D19D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB85D3A8-D2D7-4BB1-855D-1AAFD2D19D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB85D3A8-D2D7-4BB1-855D-1AAFD2D19D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16062BE3-6680-47AC-8E67-C58A81FCE192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16062BE3-6680-47AC-8E67-C58A81FCE192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16062BE3-6680-47AC-8E67-C58A81FCE192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16062BE3-6680-47AC-8E67-C58A81FCE192}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

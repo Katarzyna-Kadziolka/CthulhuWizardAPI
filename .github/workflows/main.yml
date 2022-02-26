@@ -25,3 +25,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Unit Test
       run: dotnet test --no-build --verbosity normal CthulhuWizard.Tests.Unit/CthulhuWizard.Tests.Unit.csproj
+    - name: Integration Test
+      run: dotnet test --no-build --verbosity normal CthulhuWizard.Tests.Integrations/CthulhuWizard.Tests.Integrations.csproj

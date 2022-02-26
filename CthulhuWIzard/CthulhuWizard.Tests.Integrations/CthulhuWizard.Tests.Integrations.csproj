@@ -5,6 +5,8 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>CthulhuWiard.Tests.Integrations</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

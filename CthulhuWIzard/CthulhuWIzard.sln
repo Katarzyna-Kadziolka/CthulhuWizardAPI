@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A0BEBA3B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Unit", "CthulhuWizard.Tests.Unit\CthulhuWizard.Tests.Unit.csproj", "{AB11D576-25E3-437A-9987-86753006547A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWiard.Tests.Integrations", "CthulhuWiard.Tests.Integrations\CthulhuWiard.Tests.Integrations.csproj", "{29C98C13-B26C-4851-89D8-94375B9FA0EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Integrations", "CthulhuWizard.Tests.Integrations\CthulhuWizard.Tests.Integrations.csproj", "{29C98C13-B26C-4851-89D8-94375B9FA0EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Shared", "CthulhuWizard.Tests.Shared\CthulhuWizard.Tests.Shared.csproj", "{B58E3985-D271-4A54-9C28-592F32C22A26}"
 EndProject

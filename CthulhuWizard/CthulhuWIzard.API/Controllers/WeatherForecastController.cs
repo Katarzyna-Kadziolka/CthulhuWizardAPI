@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers;
 
+// [ApiVersion( "1.0" )]
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase {

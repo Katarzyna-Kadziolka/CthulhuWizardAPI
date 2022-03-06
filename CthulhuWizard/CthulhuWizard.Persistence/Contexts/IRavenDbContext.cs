@@ -3,5 +3,5 @@
 namespace CthulhuWizard.Persistence.Contexts; 
 
 public interface IRavenDbContext {
-    public IDocumentStore Store { get; set; }
+    public DocumentStore Store { get; }
 }

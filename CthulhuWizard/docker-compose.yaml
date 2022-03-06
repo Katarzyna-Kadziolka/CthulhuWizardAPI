@@ -10,10 +10,11 @@ services:
       - configVolume:/opt/RavenDB/config
       - dataVolume:/opt/RavenDB/Server/RavenData
     environment:
-      RAVEN_ARGS: --ServerUrl=http://0.0.0.0:8080 --Setup.Mode=None --License.Eula.Accepted=true
+      RAVEN_ARGS: '--Setup.Mode=None'
       RAVEN_Security_UnsecuredAccessAllowed: 'PrivateNetwork'
+      RAVEN_License_Eula_Accepted: true
+      
 
 volumes:
   configVolume:
   dataVolume:
-

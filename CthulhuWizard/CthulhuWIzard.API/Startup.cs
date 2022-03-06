@@ -1,6 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
 
-namespace CthulhuWizard.API; 
+namespace CthulhuWizard.API;
 
 public class Startup {
     public Startup(IConfiguration configuration) {
@@ -12,7 +13,12 @@ public class Startup {
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
         services.AddControllers();
-        services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" }); });
+        services.AddApiVersioning(
+            config => {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+            });
+        services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,4 +37,5 @@ public class Startup {
 
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }
+  
 }

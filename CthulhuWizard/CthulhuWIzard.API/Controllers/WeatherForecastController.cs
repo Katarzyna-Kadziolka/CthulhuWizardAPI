@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers;
 
+
 [ApiController]
-[Route("[controller]")]
+[Route("api/v1/[controller]")]
+[ApiVersion( "1.0" )]
 public class WeatherForecastController : ControllerBase {
     private static readonly string[] Summaries = new[] {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"

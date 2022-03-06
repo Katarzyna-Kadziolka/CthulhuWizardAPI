@@ -6,7 +6,7 @@ on:
     
 defaults:
       run:
-        working-directory: ./CthulhuWizardAPI
+        working-directory: ./CthulhuWizard/CthulhuWIzard.API
 
 jobs:
   build:

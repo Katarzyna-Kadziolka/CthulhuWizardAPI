@@ -1,3 +1,4 @@
+using CthulhuWizard.Persistence.Contexts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers;
@@ -12,9 +13,11 @@ public class WeatherForecastController : ControllerBase {
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly IRavenDbContext _context;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger) {
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IRavenDbContext context) {
         _logger = logger;
+        _context = context;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]

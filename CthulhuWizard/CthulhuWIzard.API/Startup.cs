@@ -1,5 +1,4 @@
 ﻿using CthulhuWizard.API.Options;
-using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;

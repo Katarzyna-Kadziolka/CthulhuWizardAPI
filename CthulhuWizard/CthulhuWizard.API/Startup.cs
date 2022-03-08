@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CthulhuWizard.API.Options;
+using CthulhuWizard.Persistence.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
 namespace CthulhuWizard.API;
@@ -12,13 +14,16 @@ public class Startup {
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
+        services.AddOptions<RavenDbOptions>().Bind(Configuration.GetSection(RavenDbOptions.Database));
         services.AddControllers();
         services.AddApiVersioning(
             config => {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
-        services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
+        services.AddSwaggerGen(
+            c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
+        services.AddRavenDbContext();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,5 +42,4 @@ public class Startup {
 
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }
-  
 }

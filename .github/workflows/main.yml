@@ -6,7 +6,7 @@ on:
     
 defaults:
       run:
-        working-directory: ./CthulhuWizard/CthulhuWIzard.API
+        working-directory: ./CthulhuWizard
 
 jobs:
   build:
@@ -19,11 +19,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
-    - name: Unit Test
-      run: dotnet test --no-build --verbosity normal CthulhuWizard/CthulhuWizard.Tests.Unit/CthulhuWizard.Tests.Unit.csproj
-    - name: Integration Test
-      run: dotnet test --no-build --verbosity normal CthulhuWizard/CthulhuWizard.Tests.Integrations/CthulhuWizard.Tests.Integrations.csproj
+      run: dotnet build
+    - name: Tests
+      run: dotnet test --no-build --verbosity normal

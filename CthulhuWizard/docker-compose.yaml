@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ravenDb:
+    image: ravendb/ravendb
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - configVolume:/opt/RavenDB/config
+      - dataVolume:/opt/RavenDB/Server/RavenData
+    environment:
+      RAVEN_ARGS: '--Setup.Mode=None'
+      RAVEN_Security_UnsecuredAccessAllowed: 'PrivateNetwork'
+      RAVEN_License_Eula_Accepted: true
+      
+
+volumes:
+  configVolume:
+  dataVolume:

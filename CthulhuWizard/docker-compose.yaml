@@ -12,9 +12,19 @@ services:
     environment:
       RAVEN_ARGS: '--Setup.Mode=None'
       RAVEN_Security_UnsecuredAccessAllowed: 'PrivateNetwork'
-      RAVEN_License_Eula_Accepted: true
-      
+      RAVEN_License_Eula_Accepted: 'true'
+  
+  postgreSQL:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
 
 volumes:
   configVolume:
   dataVolume:
+  pgdata:

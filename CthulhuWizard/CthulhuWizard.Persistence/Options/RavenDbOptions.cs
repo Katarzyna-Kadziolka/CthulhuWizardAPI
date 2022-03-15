@@ -1,4 +1,4 @@
-﻿namespace CthulhuWizard.API.Options; 
+﻿namespace CthulhuWizard.Persistence.Options; 
 
 public class RavenDbOptions {
     public const string Database = nameof(Database);

@@ -1,4 +1,4 @@
-﻿using CthulhuWizard.API.Options;
+﻿using CthulhuWizard.Persistence.Options;
 using Microsoft.Extensions.Options;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;

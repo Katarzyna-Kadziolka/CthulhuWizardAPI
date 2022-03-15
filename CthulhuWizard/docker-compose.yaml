@@ -15,6 +15,7 @@ services:
       RAVEN_License_Eula_Accepted: 'true'
   
   postgreSQL:
+    container_name: pg_container
     image: postgres
     restart: always
     ports:
@@ -22,7 +23,19 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data/
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: CthulhuWizardUsers
+  
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
 
 volumes:
   configVolume:

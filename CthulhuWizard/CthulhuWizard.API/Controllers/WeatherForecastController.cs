@@ -14,10 +14,13 @@ public class WeatherForecastController : ControllerBase {
 
     private readonly ILogger<WeatherForecastController> _logger;
     private readonly IRavenDbContext _context;
+    private readonly IdentityDbContext _identityDbContext;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, IRavenDbContext context) {
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IRavenDbContext context, IdentityDbContext identityDbContext) {
         _logger = logger;
         _context = context;
+        _identityDbContext = identityDbContext;
+        var result = _identityDbContext.Database.CanConnect();
     }
 
     [HttpGet(Name = "GetWeatherForecast")]

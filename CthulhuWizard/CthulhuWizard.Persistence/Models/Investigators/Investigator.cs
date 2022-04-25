@@ -13,6 +13,6 @@ public class Investigator {
 	public List<Skill> Skills { get; set; }
 	public List<Weapon> Weapons { get; set; }
 	public List<Equipment> Equipments { get; set; }
-	public Asset Assets { get; set; }
+	public Asset Asset { get; set; }
 	public Backstory Backstory { get; set; }
 }

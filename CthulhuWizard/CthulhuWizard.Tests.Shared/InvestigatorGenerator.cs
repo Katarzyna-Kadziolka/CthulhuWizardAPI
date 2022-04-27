@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using CthulhuWizard.Persistence.Models;
 using CthulhuWizard.Persistence.Models.Investigators;
 
 namespace CthulhuWizard.Tests.Shared; 
@@ -17,9 +18,9 @@ public static class InvestigatorGenerator {
 		               .RuleFor(a => a.Residence, f => f.Address.City())
 		               .RuleFor(a => a.Occupation, f => OccupationGenerator.Occupation)
 		               .RuleFor(a => a.Characteristic, f => CharacteristicGenerator.Characteristic)
-		               .RuleFor(a => a.Skills, f => SkillsGenerator.Skills)
-		               .RuleFor(a => a.Weapons, f => WeaponsGenerator.Weapons)
-		               .RuleFor(a => a.Equipments, f => EquipmentsGenerator.Equipment)
+		               .RuleFor(a => a.Skills, new List<Skill>())
+		               .RuleFor(a => a.Weapons, new List<Weapon>())
+		               .RuleFor(a => a.Equipments, f => new List<Equipment>())
 		               .RuleFor(a => a.Asset, f => AssetGenerator.Asset)
 		               .RuleFor(a => a.Backstory, f => BackstoryGenerator.Backstory);
 	}

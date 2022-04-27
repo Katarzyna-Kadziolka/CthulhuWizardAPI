@@ -1,4 +1,6 @@
-﻿namespace CthulhuWizard.Application.Requests.Investigators; 
+﻿using CthulhuWizard.Application.Requests.Skills;
+
+namespace CthulhuWizard.Application.Requests.Weapons; 
 
 public class WeaponDto {
 	public Guid Id { get; set; }

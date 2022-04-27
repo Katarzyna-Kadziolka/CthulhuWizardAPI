@@ -1,4 +1,8 @@
-﻿using CthulhuWizard.Persistence.Models.Investigators;
+﻿using CthulhuWizard.Application.Requests.Equipments;
+using CthulhuWizard.Application.Requests.Occupations;
+using CthulhuWizard.Application.Requests.Skills;
+using CthulhuWizard.Application.Requests.Weapons;
+using CthulhuWizard.Persistence.Models.Investigators;
 
 namespace CthulhuWizard.Application.Requests.Investigators; 
 

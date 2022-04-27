@@ -1,4 +1,6 @@
-﻿namespace CthulhuWizard.Persistence.Models.Investigators; 
+﻿using CthulhuWizard.Persistence.Models.Investigators;
+
+namespace CthulhuWizard.Persistence.Models; 
 
 public class Weapon {
 	public Guid Id { get; set; }
@@ -11,4 +13,5 @@ public class Weapon {
 	public string BulletsInGun { get; set; } 
 	public int? Cost { get; set; }
 	public int Malfunction { get; set; }
+	public List<Investigator> Investigators { get; set; }
 }

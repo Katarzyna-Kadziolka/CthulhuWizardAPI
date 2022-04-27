@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CthulhuWizard.Persistence.Models.Investigators;
+using CthulhuWizard.Persistence.Models;
 
-namespace CthulhuWizard.Application.Requests.Investigators.Mappings; 
+namespace CthulhuWizard.Application.Requests.Weapons; 
 
 public class WeaponMappingProfile : Profile {
 	public WeaponMappingProfile() {

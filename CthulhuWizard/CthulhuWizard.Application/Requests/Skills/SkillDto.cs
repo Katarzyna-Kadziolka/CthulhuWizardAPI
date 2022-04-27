@@ -1,4 +1,4 @@
-﻿namespace CthulhuWizard.Application.Requests.Investigators; 
+﻿namespace CthulhuWizard.Application.Requests.Skills; 
 
 public class SkillDto {
 	public Guid Id { get; set; }

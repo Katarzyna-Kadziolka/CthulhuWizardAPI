@@ -1,4 +1,5 @@
-﻿using CthulhuWizard.Persistence.Models.Investigators;
+﻿using CthulhuWizard.Persistence.Models;
+using CthulhuWizard.Persistence.Models.Investigators;
 using MediatR.AspNet;
 
 namespace CthulhuWizard.Application.Requests.Investigators.Queries.GetInvestigators; 

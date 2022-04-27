@@ -1,4 +1,5 @@
-﻿using CthulhuWizard.Persistence.Extensions;
+﻿using CthulhuWizard.Application;
+using CthulhuWizard.Persistence.Extensions;
 using CthulhuWizard.Persistence.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
@@ -21,6 +22,7 @@ public class Startup {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
+        services.AddApplication();
         services.AddSwaggerGen(
             c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
         services.AddRavenDbContext();

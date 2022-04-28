@@ -11,7 +11,6 @@ public static class EquipmentGenerator {
 		Equipment = new Faker<Equipment>()
 		            .RuleFor(a => a.Id, f => Guid.NewGuid())
 		            .RuleFor(a => a.Name, f => f.Lorem.Word())
-		            .RuleFor(a => a.Price, f => f.Finance.Amount())
-		            .RuleFor(a => a.Investigators, f => new List<Investigator>());
+		            .RuleFor(a => a.Price, f => f.Finance.Amount());
 	}
 }

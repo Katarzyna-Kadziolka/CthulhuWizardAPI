@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using CthulhuWizard.Persistence.Models;
+using Raven.Client.Documents.Linq;
 
 namespace CthulhuWizard.Tests.Shared; 
 
@@ -11,7 +12,7 @@ public static class SkillGenerator {
 		         .RuleFor(a => a.Id, f => Guid.NewGuid())
 		         .RuleFor(a => a.Name, f => f.Lorem.Word())
 		         .RuleFor(a => a.IsRare, f => f.Random.Bool())
-		         .RuleFor(a => a.MinValue, f => f.Random.Int(0, 99))
-		         .RuleFor(a => a.Occupations, f => new List<Occupation>());
+		         .RuleFor(a => a.MinValue, f => f.Random.Int(0, 15))
+		         .RuleFor(a => a.CurrentValue, f => f.Random.Int(16, 99));
 	}
 }

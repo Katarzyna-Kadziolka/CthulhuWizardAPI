@@ -7,6 +7,5 @@ namespace CthulhuWizard.Application.Requests.Occupations;
 public class OccupationMappingProfile : Profile {
 	public OccupationMappingProfile() {
 		CreateMap<Occupation, OccupationDto>();
-		CreateMap<Skill, SkillDto>();
 	}
 }

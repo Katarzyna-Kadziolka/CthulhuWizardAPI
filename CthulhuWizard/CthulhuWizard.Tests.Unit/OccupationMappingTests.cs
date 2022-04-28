@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
@@ -11,7 +12,7 @@ public class OccupationMappingTests {
 	public OccupationMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
-			mc.AddProfile(new OccupationMappingProfile());
+			mc.AddMaps(typeof(InvestigatorMappingProfile).Assembly);
 		});
 		_mapper = mappingConfig.CreateMapper();
 	}

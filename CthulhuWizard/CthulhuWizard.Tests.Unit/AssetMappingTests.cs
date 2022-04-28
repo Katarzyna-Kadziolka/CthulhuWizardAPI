@@ -12,7 +12,7 @@ public class AssetMappingTests {
     public AssetMappingTests() {
         var mappingConfig = new MapperConfiguration(mc
             => {
-            mc.AddProfile(new AssetMappingProfile());
+            mc.AddMaps(typeof(InvestigatorMappingProfile).Assembly);
         });
         _mapper = mappingConfig.CreateMapper();
     }

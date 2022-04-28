@@ -13,5 +13,4 @@ public class Weapon {
 	public string BulletsInGun { get; set; } 
 	public int? Cost { get; set; }
 	public int Malfunction { get; set; }
-	public List<Investigator> Investigators { get; set; }
 }

@@ -12,7 +12,7 @@ public class CharacteristicMappingTests {
 	public CharacteristicMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
-			mc.AddProfile(new CharacteristicMappingProfile());
+			mc.AddMaps(typeof(InvestigatorMappingProfile).Assembly);
 		});
 		_mapper = mappingConfig.CreateMapper();
 	}

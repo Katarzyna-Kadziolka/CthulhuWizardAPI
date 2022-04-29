@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Tests.Shared;
@@ -20,7 +21,7 @@ public class OccupationMappingTests {
 	[Test]
 	public void Map_Occupation_ShouldReturnOccupationDto() {
 		// Arrange
-		var occupation = OccupationGenerator.Occupation;
+		var occupation = OccupationsGenerator.Occupations.First();
 		// Act
 		var occupationDto = _mapper.Map<OccupationDto>(occupation);
 		// Assert

@@ -16,11 +16,11 @@ public static class InvestigatorGenerator {
 		               .RuleFor(a => a.Gender, f => f.PickRandom<Gender>())
 		               .RuleFor(a => a.BirthPlace, f => f.Address.City())
 		               .RuleFor(a => a.Residence, f => f.Address.City())
-		               .RuleFor(a => a.Occupation, f => OccupationGenerator.Occupation)
+		               .RuleFor(a => a.Occupation, f => OccupationsGenerator.Occupations.First())
 		               .RuleFor(a => a.Characteristic, f => CharacteristicGenerator.Characteristic)
-		               .RuleFor(a => a.Skills, new List<Skill>{SkillGenerator.Skill})
-		               .RuleFor(a => a.Weapons, new List<Weapon>{WeaponGenerator.Weapon})
-		               .RuleFor(a => a.Equipments, f => new List<Equipment>{EquipmentGenerator.Equipment})
+		               .RuleFor(a => a.Skills, SkillsGenerator.Skills)
+		               .RuleFor(a => a.Weapons, WeaponsGenerator.Weapons)
+		               .RuleFor(a => a.Equipments, f => EquipmentGenerator.Equipments)
 		               .RuleFor(a => a.Asset, f => AssetGenerator.Asset)
 		               .RuleFor(a => a.Backstory, f => BackstoryGenerator.Backstory);
 	}

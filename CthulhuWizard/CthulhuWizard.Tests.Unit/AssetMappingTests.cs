@@ -1,3 +1,4 @@
+using System.Linq;
 using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;

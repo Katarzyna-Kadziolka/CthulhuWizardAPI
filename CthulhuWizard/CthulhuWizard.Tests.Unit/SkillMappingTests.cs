@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Application.Requests.Skills;
 using CthulhuWizard.Tests.Shared;
@@ -20,7 +21,7 @@ public class SkillMappingTests {
 	[Test]
 	public void Map_Skill_ShouldReturnSkillDto() {
 		// Arrange
-		var skill = SkillGenerator.Skill;
+		var skill = SkillsGenerator.Skills.First();
 		// Act
 		var skillDto = _mapper.Map<SkillDto>(skill);
 		// Assert

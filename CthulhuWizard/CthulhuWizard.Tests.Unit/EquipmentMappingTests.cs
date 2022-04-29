@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using CthulhuWizard.Application.Requests.Equipments;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Tests.Shared;
@@ -20,7 +21,7 @@ public class EquipmentMappingTests {
 	[Test]
 	public void Map_Equipment_ShouldReturnEquipmentDto() {
 		// Arrange
-		var equipment = EquipmentGenerator.Equipment;
+		var equipment = EquipmentGenerator.Equipments.First();
 		// Act
 		var equipmentDto = _mapper.Map<EquipmentDto>(equipment);
 		// Assert

@@ -5,7 +5,7 @@ using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CthulhuWizard.Tests.Unit; 
+namespace CthulhuWizard.Tests.Unit.MappingTests; 
 
 public class CharacteristicMappingTests {
 	private static IMapper _mapper;

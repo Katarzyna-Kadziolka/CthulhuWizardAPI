@@ -1,4 +1,3 @@
-using System.Linq;
 using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
@@ -6,7 +5,7 @@ using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CthulhuWizard.Tests.Unit;
+namespace CthulhuWizard.Tests.Unit.MappingTests;
 
 public class AssetMappingTests {
     private static IMapper _mapper;

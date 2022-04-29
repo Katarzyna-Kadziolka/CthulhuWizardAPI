@@ -1,6 +1,7 @@
 ﻿using CthulhuWizard.Application;
 using CthulhuWizard.Persistence.Extensions;
 using CthulhuWizard.Persistence.Options;
+using MediatR.AspNet;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
@@ -16,17 +17,18 @@ public class Startup {
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
         services.AddOptions<RavenDbOptions>().Bind(Configuration.GetSection(RavenDbOptions.Database));
-        services.AddControllers();
+        services.AddRavenDbContext();
+        services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
+        services.AddApplication();
+        services.AddControllers(o => o.Filters.AddMediatrExceptions());
         services.AddApiVersioning(
             config => {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
             });
-        services.AddApplication();
         services.AddSwaggerGen(
             c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
-        services.AddRavenDbContext();
-        services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,12 +7,14 @@ namespace CthulhuWizard.API.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("v1/[controller]")]
+[ApiVersion("1.0")]
 public class EquipmentController : ControllerBase {
 	private readonly IMediator _mediator;
 
 	public EquipmentController(IMediator mediator) {
 		_mediator = mediator;
+		
 	}
 	[HttpGet]
 	public async Task<List<EquipmentDto>> Get([FromQuery] GetEquipmentsQuery query) {

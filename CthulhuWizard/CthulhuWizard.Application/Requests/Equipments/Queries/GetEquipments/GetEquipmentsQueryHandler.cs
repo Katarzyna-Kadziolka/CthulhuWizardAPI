@@ -3,6 +3,7 @@ using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models;
 using MediatR;
 using Raven.Client.Documents;
+using Sparrow.Json;
 
 namespace CthulhuWizard.Application.Requests.Equipments.Queries.GetEquipments;
 
@@ -16,12 +17,15 @@ public class GetEquipmentsQueryHandler : IRequestHandler<GetEquipmentsQuery, Lis
 	}
 
 	public async Task<List<EquipmentDto>> Handle(GetEquipmentsQuery request, CancellationToken cancellationToken) {
-		using var session = _context.Store.OpenSession();
-		return await session
-		       .Query<Equipment>()
-		       .Where(a => (string.IsNullOrEmpty(request.Name) || a.Name.StartsWith(request.Name)) &&
-		                   (request.Price == null || a.Price == request.Price))
-		       .Select(a => _mapper.Map<EquipmentDto>(a))
-		       .ToListAsync(cancellationToken);
+		using var session = _context.Store.OpenAsyncSession();
+		var name = request.Name ?? "";
+		var equipments = await session
+		                 .Query<Equipment>()
+		                 .Search(a => a.Name, $"*{name}*") 
+		                 .Where(a => request.Price == null || a.Price == request.Price)
+		                 .ToListAsync(cancellationToken);
+		
+		return _mapper.Map<List<EquipmentDto>>(equipments);
+
 	}
 }

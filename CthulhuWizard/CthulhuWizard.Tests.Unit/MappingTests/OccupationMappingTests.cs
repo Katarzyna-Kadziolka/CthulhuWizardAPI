@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace CthulhuWizard.Tests.Unit.MappingTests; 
 
 public class OccupationMappingTests {
-	private static IMapper _mapper;
+	private static IMapper? _mapper;
 	public OccupationMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
@@ -23,16 +23,18 @@ public class OccupationMappingTests {
 		// Arrange
 		var occupation = OccupationsGenerator.Occupations.First();
 		// Act
-		var occupationDto = _mapper.Map<OccupationDto>(occupation);
-		// Assert
-		occupationDto.Descritpion.Should().Be(occupation.Descritpion);
-		occupationDto.Id.Should().Be(occupation.Id);
-		occupationDto.Name.Should().Be(occupation.Name);
-		occupationDto.Skills.Should().BeEquivalentTo(occupation.Skills);
-		occupationDto.ImageUrl.Should().Be(occupation.ImageUrl);
-		occupationDto.IsLovecraftian.Should().Be(occupation.IsLovecraftian);
-		occupationDto.SkillPoints.Should().Be(occupation.SkillPoints);
-		occupationDto.MaxCreditRating.Should().Be(occupation.MaxCreditRating);
-		occupationDto.MinCreditRating.Should().Be(occupation.MinCreditRating);
+		if (_mapper != null) {
+			var occupationDto = _mapper.Map<OccupationDto>(occupation);
+			// Assert
+			occupationDto.Descritpion.Should().Be(occupation.Descritpion);
+			occupationDto.Id.Should().Be(occupation.Id);
+			occupationDto.Name.Should().Be(occupation.Name);
+			occupationDto.Skills.Should().BeEquivalentTo(occupation.Skills);
+			occupationDto.ImageUrl.Should().Be(occupation.ImageUrl);
+			occupationDto.IsLovecraftian.Should().Be(occupation.IsLovecraftian);
+			occupationDto.SkillPoints.Should().Be(occupation.SkillPoints);
+			occupationDto.MaxCreditRating.Should().Be(occupation.MaxCreditRating);
+			occupationDto.MinCreditRating.Should().Be(occupation.MinCreditRating);
+		}
 	}
 }

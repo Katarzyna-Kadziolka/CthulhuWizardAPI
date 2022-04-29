@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace CthulhuWizard.Tests.Unit.MappingTests; 
 
 public class EquipmentMappingTests {
-	private static IMapper _mapper;
+	private static IMapper? _mapper;
 	public EquipmentMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
@@ -23,10 +23,12 @@ public class EquipmentMappingTests {
 		// Arrange
 		var equipment = EquipmentGenerator.Equipments.First();
 		// Act
-		var equipmentDto = _mapper.Map<EquipmentDto>(equipment);
-		// Assert
-		equipmentDto.Id.Should().Be(equipment.Id);
-		equipmentDto.Name.Should().Be(equipment.Name);
-		equipmentDto.Price.Should().Be(equipment.Price);
+		if (_mapper != null) {
+			var equipmentDto = _mapper.Map<EquipmentDto>(equipment);
+			// Assert
+			equipmentDto.Id.Should().Be(equipment.Id);
+			equipmentDto.Name.Should().Be(equipment.Name);
+			equipmentDto.Price.Should().Be(equipment.Price);
+		}
 	}
 }

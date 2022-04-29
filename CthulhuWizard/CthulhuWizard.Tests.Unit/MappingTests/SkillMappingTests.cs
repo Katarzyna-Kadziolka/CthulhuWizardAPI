@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace CthulhuWizard.Tests.Unit.MappingTests; 
 
 public class SkillMappingTests {
-	private static IMapper _mapper;
+	private static IMapper? _mapper;
 	public SkillMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
@@ -23,12 +23,14 @@ public class SkillMappingTests {
 		// Arrange
 		var skill = SkillsGenerator.Skills.First();
 		// Act
-		var skillDto = _mapper.Map<SkillDto>(skill);
-		// Assert
-		skillDto.Id.Should().Be(skill.Id);
-		skillDto.Name.Should().Be(skill.Name);
-		skillDto.CurrentValue.Should().Be(skill.CurrentValue);
-		skillDto.IsRare.Should().Be(skill.IsRare);
-		skillDto.MinValue.Should().Be(skill.MinValue);
+		if (_mapper != null) {
+			var skillDto = _mapper.Map<SkillDto>(skill);
+			// Assert
+			skillDto.Id.Should().Be(skill.Id);
+			skillDto.Name.Should().Be(skill.Name);
+			skillDto.CurrentValue.Should().Be(skill.CurrentValue);
+			skillDto.IsRare.Should().Be(skill.IsRare);
+			skillDto.MinValue.Should().Be(skill.MinValue);
+		}
 	}
 }

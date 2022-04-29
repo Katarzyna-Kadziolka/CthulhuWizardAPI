@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace CthulhuWizard.Tests.Unit.MappingTests; 
 
 public class CharacteristicMappingTests {
-	private static IMapper _mapper;
+	private static IMapper? _mapper;
 	public CharacteristicMappingTests() {
 		var mappingConfig = new MapperConfiguration(mc
 			=> {
@@ -20,22 +20,24 @@ public class CharacteristicMappingTests {
 	[Test]
 	public void Map_Characteristic_ShouldReturnCharacteristicDto() {
 		// Arrange
-		var characteristic = CharacteristicGenerator.Characteristic;
+		var characteristic = CharacteristicGenerator.CharacteristicEntity;
 		// Act
-		var characteristicDto = _mapper.Map<CharacteristicDto>(characteristic);
-		// Assert
-		characteristicDto.Appearance.Should().Be(characteristic.Appearance);
-		characteristicDto.Build.Should().Be(characteristic.Build);
-		characteristicDto.Constitution.Should().Be(characteristic.Constitution);
-		characteristicDto.Dexterity.Should().Be(characteristic.Dexterity);
-		characteristicDto.Education.Should().Be(characteristic.Education);
-		characteristicDto.Intelligence.Should().Be(characteristic.Intelligence);
-		characteristicDto.Luck.Should().Be(characteristic.Luck);
-		characteristicDto.Power.Should().Be(characteristic.Power);
-		characteristicDto.Size.Should().Be(characteristic.Size);
-		characteristicDto.Strength.Should().Be(characteristic.Strength);
-		characteristicDto.DamageBonus.Should().Be(characteristic.DamageBonus);
-		characteristicDto.HitPoints.Should().Be(characteristic.HitPoints);
-		characteristicDto.MovemetRate.Should().Be(characteristic.MovemetRate);
+		if (_mapper != null) {
+			var characteristicDto = _mapper.Map<CharacteristicDto>(characteristic);
+			// Assert
+			characteristicDto.Appearance.Should().Be(characteristic.Appearance);
+			characteristicDto.Build.Should().Be(characteristic.Build);
+			characteristicDto.Constitution.Should().Be(characteristic.Constitution);
+			characteristicDto.Dexterity.Should().Be(characteristic.Dexterity);
+			characteristicDto.Education.Should().Be(characteristic.Education);
+			characteristicDto.Intelligence.Should().Be(characteristic.Intelligence);
+			characteristicDto.Luck.Should().Be(characteristic.Luck);
+			characteristicDto.Power.Should().Be(characteristic.Power);
+			characteristicDto.Size.Should().Be(characteristic.Size);
+			characteristicDto.Strength.Should().Be(characteristic.Strength);
+			characteristicDto.DamageBonus.Should().Be(characteristic.DamageBonus);
+			characteristicDto.HitPoints.Should().Be(characteristic.HitPoints);
+			characteristicDto.MovementRate.Should().Be(characteristic.MovementRate);
+		}
 	}
 }

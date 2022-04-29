@@ -1,6 +1,6 @@
-﻿namespace CthulhuWizard.Application.Requests.Investigators; 
+﻿namespace CthulhuWizard.Persistence.Models.Investigators; 
 
-public class BackstoryDto {
+public class BackstoryEntity {
 	public string? PersonalDescription { get; set; }
 	public string? IdeologyBeliefs { get; set; }
 	public string? SignificantPeople { get; set; }

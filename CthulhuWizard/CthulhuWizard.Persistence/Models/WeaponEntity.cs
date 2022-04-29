@@ -1,11 +1,9 @@
-﻿using CthulhuWizard.Application.Requests.Skills;
+﻿namespace CthulhuWizard.Persistence.Models; 
 
-namespace CthulhuWizard.Application.Requests.Weapons; 
-
-public class WeaponDto {
+public class WeaponEntity {
 	public Guid Id { get; set; }
 	public string? Name { get; set; }
-	public SkillDto? Skill { get; set; }
+	public SkillEntity? SkillEntity { get; set; }
 	public bool IsImpale { get; set; }
 	public string? Damage { get; set; }
 	public string? BaseRange { get; set; }

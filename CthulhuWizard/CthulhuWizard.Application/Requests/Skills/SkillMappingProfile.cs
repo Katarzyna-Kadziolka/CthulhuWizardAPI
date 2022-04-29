@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Skills;
 
 public class SkillMappingProfile : Profile {
 	public SkillMappingProfile() {
-		CreateMap<Skill, SkillDto>();
+		CreateMap<SkillEntity, SkillDto>();
 	}
 }

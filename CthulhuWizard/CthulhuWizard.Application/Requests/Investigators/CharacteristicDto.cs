@@ -15,5 +15,5 @@ public class CharacteristicDto {
 	public DamageBonus DamageBonus { get; set; }
 	public Build Build { get; set; }
 	public int HitPoints { get; set; }
-	public int MovemetRate { get; set; }
+	public int MovementRate { get; set; }
 }

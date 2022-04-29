@@ -1,6 +1,6 @@
 ﻿namespace CthulhuWizard.Persistence.Models.Investigators; 
 
-public class Characteristic {
+public class CharacteristicEntity {
 	public int Strength { get; set; }
 	public int Constitution { get; set; }
 	public int Size { get; set; }
@@ -13,5 +13,5 @@ public class Characteristic {
 	public DamageBonus DamageBonus { get; set; }
 	public Build Build { get; set; }
 	public int HitPoints { get; set; }
-	public int MovemetRate { get; set; }
+	public int MovementRate { get; set; }
 }

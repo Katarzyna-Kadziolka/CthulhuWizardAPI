@@ -1,15 +1,14 @@
 ﻿using Bogus;
 using CthulhuWizard.Persistence.Models;
-using CthulhuWizard.Persistence.Models.Investigators;
 
 namespace CthulhuWizard.Tests.Shared; 
 
 public static class OccupationsGenerator {
-	public static List<Occupation> Occupations { get; set; }
+	public static List<OccupationEntity> Occupations { get; set; }
 
 	static OccupationsGenerator() {
-		Occupations = new Faker<Occupation>()
-		             .RuleFor(a => a.Id, f => Guid.NewGuid())
+		Occupations = new Faker<OccupationEntity>()
+		             .RuleFor(a => a.Id, _ => Guid.NewGuid())
 		             .RuleFor(a => a.Name, f => f.Lorem.Word())
 		             .RuleFor(a => a.ImageUrl, f => f.Internet.Url())
 		             .RuleFor(a => a.Descritpion, f => f.Lorem.Paragraph())
@@ -17,7 +16,7 @@ public static class OccupationsGenerator {
 		             .RuleFor(a => a.SkillPoints, f => f.Random.Int(15, 99))
 		             .RuleFor(a => a.MinCreditRating, f => f.Random.Int(15, 30))
 		             .RuleFor(a => a.MaxCreditRating, f => f.Random.Int(31, 99))
-		             .RuleFor(a => a.Skills, f => SkillsGenerator.Skills)
+		             .RuleFor(a => a.Skills, _ => SkillsGenerator.Skills)
 		             .Generate(10);
 	}
 }

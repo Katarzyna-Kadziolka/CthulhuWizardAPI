@@ -1,17 +1,16 @@
 ﻿using Bogus;
 using CthulhuWizard.Persistence.Models;
-using CthulhuWizard.Persistence.Models.Investigators;
 
 namespace CthulhuWizard.Tests.Shared; 
 
 public static class WeaponsGenerator {
-	public static List<Weapon> Weapons { get; set; }
+	public static List<WeaponEntity> Weapons { get; set; }
 
 	static WeaponsGenerator() {
-		Weapons = new Faker<Weapon>()
-		         .RuleFor(a => a.Id, f => Guid.NewGuid())
+		Weapons = new Faker<WeaponEntity>()
+		         .RuleFor(a => a.Id, _ => Guid.NewGuid())
 		         .RuleFor(a => a.Name, f => f.Lorem.Word())
-		         .RuleFor(a => a.Skill, f => SkillsGenerator.Skills.First())
+		         .RuleFor(a => a.SkillEntity, _ => SkillsGenerator.Skills.First())
 		         .RuleFor(a => a.IsImpale, f => f.Random.Bool())
 		         .RuleFor(a => a.Damage, f => f.Lorem.Sentence())
 		         .RuleFor(a => a.BaseRange, f => f.Lorem.Sentence())

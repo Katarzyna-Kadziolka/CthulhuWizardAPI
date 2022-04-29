@@ -17,6 +17,6 @@ public static class OccupationGenerator {
 		             .RuleFor(a => a.SkillPoints, f => f.Random.Int(15, 99))
 		             .RuleFor(a => a.MinCreditRating, f => f.Random.Int(15, 30))
 		             .RuleFor(a => a.MaxCreditRating, f => f.Random.Int(31, 99))
-		             .RuleFor(a => a.Skills, f => new List<Skill>());
+		             .RuleFor(a => a.Skills, f => new List<Skill>{SkillGenerator.Skill});
 	}
 }

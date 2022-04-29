@@ -18,7 +18,7 @@ public static class WeaponGenerator {
 		         .RuleFor(a => a.UsesPerRound, f => f.Lorem.Sentence())
 		         .RuleFor(a => a.BulletsInGun, f => f.Lorem.Sentence())
 		         .RuleFor(a => a.Cost, f => f.Random.Int(1, 10000))
-		         .RuleFor(a => a.Malfunction, f => f.Finance.Amount());
+		         .RuleFor(a => a.Malfunction, f =>Convert.ToInt32(f.Finance.Amount()));
 
 	}
 }

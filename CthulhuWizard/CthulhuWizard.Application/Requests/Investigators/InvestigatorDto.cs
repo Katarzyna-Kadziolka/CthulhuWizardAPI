@@ -3,6 +3,7 @@ using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Application.Requests.Skills;
 using CthulhuWizard.Application.Requests.Weapons;
 using CthulhuWizard.Persistence.Models.Investigators;
+using MediatR;
 
 namespace CthulhuWizard.Application.Requests.Investigators; 
 

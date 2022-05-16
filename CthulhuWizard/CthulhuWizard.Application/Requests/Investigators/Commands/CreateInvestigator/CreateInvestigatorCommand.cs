@@ -1,5 +1,5 @@
-﻿namespace CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator; 
+﻿using MediatR.AspNet;
 
-public class CreateInvestigatorCommand {
-	
-}
+namespace CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator; 
+
+public class CreateInvestigatorCommand : ICommand<InvestigatorDto> { }

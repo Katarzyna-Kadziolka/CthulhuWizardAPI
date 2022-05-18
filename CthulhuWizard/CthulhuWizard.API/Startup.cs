@@ -1,7 +1,10 @@
 ﻿using CthulhuWizard.Application;
+using CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator;
 using CthulhuWizard.Persistence.Extensions;
 using CthulhuWizard.Persistence.Options;
+using FluentValidation.AspNetCore;
 using MediatR.AspNet;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
@@ -21,6 +24,7 @@ public class Startup {
         services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
         services.AddApplication();
         services.AddControllers(o => o.Filters.AddMediatrExceptions());
+        services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateInvestigatorCommandValidator>());
         services.AddApiVersioning(
             config => {
                 config.DefaultApiVersion = new ApiVersion(1, 0);

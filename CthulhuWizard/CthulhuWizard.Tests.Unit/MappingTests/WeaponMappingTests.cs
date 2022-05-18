@@ -31,7 +31,7 @@ public class WeaponMappingTests {
 			weaponDto.Id.Should().Be(weapon.Id);
 			weaponDto.Malfunction.Should().Be(weapon.Malfunction);
 			weaponDto.Name.Should().Be(weapon.Name);
-			weaponDto.Skill.Should().BeEquivalentTo(weapon.SkillEntity);
+			weaponDto.Skill.Should().BeEquivalentTo(weapon.Skill);
 			weaponDto.BaseRange.Should().Be(weapon.BaseRange);
 			weaponDto.IsImpale.Should().Be(weapon.IsImpale);
 			weaponDto.BulletsInGun.Should().Be(weapon.BulletsInGun);

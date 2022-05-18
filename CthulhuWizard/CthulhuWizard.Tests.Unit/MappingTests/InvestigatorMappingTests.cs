@@ -27,12 +27,12 @@ public class InvestigatorMappingTests {
 			// Assert
 			investigatorDto.Age.Should().Be(investigator.Age);
 			investigatorDto.Id.Should().Be(investigator.Id);
-			investigatorDto.Asset.Should().BeEquivalentTo(investigator.AssetEntity);
+			investigatorDto.Asset.Should().BeEquivalentTo(investigator.Asset);
 			investigatorDto.Skills.Should().BeEquivalentTo(investigator.Skills);
-			investigatorDto.Backstory.Should().BeEquivalentTo(investigator.BackstoryEntity);
-			investigatorDto.Characteristic.Should().BeEquivalentTo(investigator.CharacteristicEntity);
+			investigatorDto.Backstory.Should().BeEquivalentTo(investigator.Backstory);
+			investigatorDto.Characteristic.Should().BeEquivalentTo(investigator.Characteristic);
 			investigatorDto.Gender.Should().Be(investigator.Gender);
-			investigatorDto.Occupation.Should().BeEquivalentTo(investigator.OccupationEntity);
+			investigatorDto.Occupation.Should().BeEquivalentTo(investigator.Occupation);
 			investigatorDto.Residence.Should().Be(investigator.Residence);
 			investigatorDto.BirthPlace.Should().Be(investigator.BirthPlace);
 			investigatorDto.FirstName.Should().Be(investigator.FirstName);

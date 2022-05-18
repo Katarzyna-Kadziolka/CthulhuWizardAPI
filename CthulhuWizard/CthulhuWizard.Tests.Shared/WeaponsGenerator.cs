@@ -10,7 +10,7 @@ public static class WeaponsGenerator {
 		Weapons = new Faker<WeaponEntity>()
 		         .RuleFor(a => a.Id, _ => Guid.NewGuid())
 		         .RuleFor(a => a.Name, f => f.Lorem.Word())
-		         .RuleFor(a => a.SkillEntity, _ => SkillsGenerator.Skills.First())
+		         .RuleFor(a => a.Skill, _ => SkillsGenerator.Skills.First())
 		         .RuleFor(a => a.IsImpale, f => f.Random.Bool())
 		         .RuleFor(a => a.Damage, f => f.Lorem.Sentence())
 		         .RuleFor(a => a.BaseRange, f => f.Lorem.Sentence())

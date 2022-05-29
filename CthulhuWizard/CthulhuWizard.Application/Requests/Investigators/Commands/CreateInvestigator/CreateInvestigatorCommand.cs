@@ -5,7 +5,6 @@ using MediatR.AspNet;
 namespace CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator;
 
 public class CreateInvestigatorCommand : ICommand<InvestigatorDto> {
-    public Guid Id { get; set; }
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public int Age { get; set; }

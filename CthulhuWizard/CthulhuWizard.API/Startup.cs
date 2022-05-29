@@ -7,6 +7,7 @@ using MediatR.AspNet;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 
 namespace CthulhuWizard.API;
 
@@ -23,7 +24,10 @@ public class Startup {
         services.AddRavenDbContext();
         services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
         services.AddApplication();
-        services.AddControllers(o => o.Filters.AddMediatrExceptions());
+        services.AddCors();
+        services
+            .AddControllers(o => o.Filters.AddMediatrExceptions())
+            .AddNewtonsoftJson(o => o.SerializerSettings.Converters.Add(new StringEnumConverter()));
         services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateInvestigatorCommandValidator>());
         services.AddApiVersioning(
             config => {
@@ -32,6 +36,7 @@ public class Startup {
             });
         services.AddSwaggerGen(
             c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });
+        services.AddSwaggerGenNewtonsoftSupport();
 
     }
 
@@ -48,7 +53,13 @@ public class Startup {
         app.UseRouting();
 
         app.UseAuthorization();
-
+        
+        app.UseCors(builder =>
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+        
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }
 }

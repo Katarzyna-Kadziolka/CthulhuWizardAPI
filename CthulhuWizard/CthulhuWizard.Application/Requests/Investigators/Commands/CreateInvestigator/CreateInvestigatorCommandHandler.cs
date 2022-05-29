@@ -21,8 +21,11 @@ public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigat
 		};
 		var investigator = _mapper.Map<InvestigatorEntity>(request);
 		var blittableInvestigator = session.Advanced.JsonConverter.ToBlittable(investigator, investigatorInfo);
-		var command = new PutDocumentCommand(Guid.NewGuid().ToString(), null, blittableInvestigator);
+		var id = Guid.NewGuid();
+		var command = new PutDocumentCommand(id.ToString(), null, blittableInvestigator);
 		await session.Advanced.RequestExecutor.ExecuteAsync(command, session.Advanced.Context, token: cancellationToken);
-		return _mapper.Map<InvestigatorDto>(request);
+		var investigatorDto = _mapper.Map<InvestigatorDto>(request);
+		investigatorDto.Id = id;
+		return investigatorDto;
 	}
 }

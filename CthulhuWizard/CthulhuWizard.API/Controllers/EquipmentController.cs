@@ -4,12 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers;
-
-
-[ApiController]
-[Route("v1/[controller]")]
-[ApiVersion("1.0")]
-public class EquipmentController : ControllerBase {
+public class EquipmentController : BaseApiController {
 	private readonly IMediator _mediator;
 
 	public EquipmentController(IMediator mediator) {

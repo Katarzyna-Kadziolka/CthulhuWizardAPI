@@ -1,5 +1,8 @@
-﻿namespace CthulhuWizard.API.Controllers; 
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class BaseApiController {
-    
-}
+namespace CthulhuWizard.API.Controllers;
+
+[ApiController]
+[Route("v1/[controller]")]
+[ApiVersion("1.0")]
+public abstract class BaseApiController : ControllerBase { }

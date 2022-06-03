@@ -3,12 +3,8 @@ using CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigat
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CthulhuWizard.API.Controllers; 
-
-[ApiController]
-[Route("v1/[controller]")]
-[ApiVersion("1.0")]
-public class InvestigatorController {
+namespace CthulhuWizard.API.Controllers;
+public class InvestigatorController : BaseApiController {
     private readonly IMediator _mediator;
 
     public InvestigatorController(IMediator mediator) {

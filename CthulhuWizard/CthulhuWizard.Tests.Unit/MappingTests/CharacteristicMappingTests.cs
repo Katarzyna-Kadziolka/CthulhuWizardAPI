@@ -2,6 +2,7 @@
 using CthulhuWizard.Application.Requests.Investigators;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Tests.Shared;
+using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -18,9 +19,10 @@ public class CharacteristicMappingTests {
 	}
 
 	[Test]
-	public void Map_Characteristic_ShouldReturnCharacteristicDto() {
+	public void Map_CharacteristicEntity_ShouldReturnCharacteristicDto() {
 		// Arrange
-		var characteristic = CharacteristicGenerator.CharacteristicEntity;
+		var generator = new CharacteristicEntityGenerator();
+		var characteristic = generator.Generate();
 		// Act
 		if (_mapper != null) {
 			var characteristicDto = _mapper.Map<CharacteristicDto>(characteristic);

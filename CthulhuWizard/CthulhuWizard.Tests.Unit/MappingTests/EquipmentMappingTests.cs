@@ -3,6 +3,7 @@ using AutoMapper;
 using CthulhuWizard.Application.Requests.Equipments;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Tests.Shared;
+using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -19,9 +20,10 @@ public class EquipmentMappingTests {
 	}
 
 	[Test]
-	public void Map_Equipment_ShouldReturnEquipmentDto() {
+	public void Map_EquipmentEntity_ShouldReturnEquipmentDto() {
 		// Arrange
-		var equipment = EquipmentGenerator.Equipments.First();
+		var generator = new EquipmentEntityGenerator();
+		var equipment = generator.Generate();
 		// Act
 		if (_mapper != null) {
 			var equipmentDto = _mapper.Map<EquipmentDto>(equipment);

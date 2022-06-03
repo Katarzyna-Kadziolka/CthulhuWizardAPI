@@ -2,6 +2,7 @@
 using CthulhuWizard.Application.Requests.Investigators;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Tests.Shared;
+using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -18,9 +19,10 @@ public class BackstoryMappingTests {
 	}
 
 	[Test]
-	public void Map_Backstory_ShouldReturnBackstoryDto() {
+	public void Map_BackstoryEntity_ShouldReturnBackstoryDto() {
 		// Arrange
-		var backstory = BackstoryGenerator.BackstoryEntity;
+		var generator = new BackstoryEntityGenerator();
+		var backstory = generator.Generate();
 		// Act
 		if (_mapper != null) {
 			var backstoryDto = _mapper.Map<BackstoryDto>(backstory);

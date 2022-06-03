@@ -3,6 +3,7 @@ using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Application.Requests.Skills;
 using CthulhuWizard.Tests.Shared;
+using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -19,9 +20,10 @@ public class SkillMappingTests {
 	}
 
 	[Test]
-	public void Map_Skill_ShouldReturnSkillDto() {
+	public void Map_SkillEntity_ShouldReturnSkillDto() {
 		// Arrange
-		var skill = SkillsGenerator.Skills.First();
+		var generator = new SkillEntityGenerator();
+		var skill = generator.Generate();
 		// Act
 		if (_mapper != null) {
 			var skillDto = _mapper.Map<SkillDto>(skill);

@@ -1,4 +1,5 @@
-﻿using CthulhuWizard.Persistence.Models;
+﻿using CthulhuWizard.Application.Requests.Occupations;
+using CthulhuWizard.Persistence.Models;
 using CthulhuWizard.Persistence.Models.Investigators;
 using MediatR.AspNet;
 
@@ -11,11 +12,12 @@ public class CreateInvestigatorCommand : ICommand<InvestigatorDto> {
     public Gender Gender{ get; set; }
     public string? BirthPlace { get; set; }
     public string? Residence { get; set; }
-    public OccupationEntity? OccupationEntity { get; set; }
-    public CharacteristicEntity? CharacteristicEntity { get; set; }
+    
+    public OccupationDto? Occupation { get; set; }
+    public CharacteristicDto? Characteristic { get; set; }
     public List<SkillEntity>? Skills { get; set; }
     public List<WeaponEntity>? Weapons { get; set; }
     public List<EquipmentEntity>? Equipments { get; set; }
-    public AssetEntity? AssetEntity { get; set; }
-    public BackstoryEntity? BackstoryEntity { get; set; }
+    public AssetDto? Asset { get; set; }
+    public BackstoryDto? Backstory { get; set; }
 }

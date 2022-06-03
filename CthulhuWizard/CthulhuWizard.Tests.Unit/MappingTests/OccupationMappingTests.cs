@@ -3,6 +3,7 @@ using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators.Mappings;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Tests.Shared;
+using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -19,9 +20,10 @@ public class OccupationMappingTests {
 	}
 
 	[Test]
-	public void Map_Occupation_ShouldReturnOccupationDto() {
+	public void Map_OccupationEntity_ShouldReturnOccupationDto() {
 		// Arrange
-		var occupation = OccupationsGenerator.Occupations.First();
+		var generator = new OccupationEntityGenerator();
+		var occupation = generator.Generate();
 		// Act
 		if (_mapper != null) {
 			var occupationDto = _mapper.Map<OccupationDto>(occupation);

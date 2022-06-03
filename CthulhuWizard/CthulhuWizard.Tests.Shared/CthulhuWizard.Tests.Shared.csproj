@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CthulhuWizard.Application\CthulhuWizard.Application.csproj" />
       <ProjectReference Include="..\CthulhuWizard.Persistence\CthulhuWizard.Persistence.csproj" />
     </ItemGroup>
 

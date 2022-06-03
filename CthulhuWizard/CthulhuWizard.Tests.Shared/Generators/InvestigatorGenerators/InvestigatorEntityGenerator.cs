@@ -7,7 +7,7 @@ namespace CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 public sealed class InvestigatorEntityGenerator : Faker<InvestigatorEntity> {
     public InvestigatorEntityGenerator() {
         StrictMode(true)
-            .RuleFor(a => a.Id, _ => Guid.NewGuid())
+            .RuleFor(a => a.Id, _ => Guid.NewGuid().ToString())
             .RuleFor(a => a.FirstName, f => f.Person.FirstName)
             .RuleFor(a => a.LastName, f => f.Person.LastName)
             .RuleFor(a => a.Age, f => f.Random.Int(15, 90))

@@ -39,7 +39,7 @@ public class InvestigatorMappingTests {
     [Test]
     public void Map_InvestigatorCommand_ShouldReturnInvestigatorEntity() {
         // Arrange
-        var generator = new InvestigatorCommandGenerator();
+        var generator = new CreateInvestigatorCommandGenerator();
         var createInvestigatorCommand = generator.Generate();
         // Act
         var investigatorEntity = _mapper.Map<InvestigatorEntity>(createInvestigatorCommand);

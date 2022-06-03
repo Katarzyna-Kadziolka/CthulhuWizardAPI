@@ -6,8 +6,8 @@ using CthulhuWizard.Persistence.Models.Investigators;
 
 namespace CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 
-public sealed class InvestigatorCommandGenerator : Faker<CreateInvestigatorCommand> {
-    public InvestigatorCommandGenerator() {
+public sealed class CreateInvestigatorCommandGenerator : Faker<CreateInvestigatorCommand> {
+    public CreateInvestigatorCommandGenerator() {
         StrictMode(true)
             .RuleFor(a => a.FirstName, f => f.Person.FirstName)
             .RuleFor(a => a.LastName, f => f.Person.LastName)

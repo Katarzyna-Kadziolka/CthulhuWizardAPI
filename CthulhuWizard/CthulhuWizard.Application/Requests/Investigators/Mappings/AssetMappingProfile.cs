@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Investigators.Mappings;
 
 public class AssetMappingProfile : Profile {
 	public AssetMappingProfile() {
-		CreateMap<AssetEntity, AssetDto>();
+		CreateMap<AssetEntity, AssetDto>().ReverseMap();
 	}
 }

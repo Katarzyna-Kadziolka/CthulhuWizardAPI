@@ -24,7 +24,7 @@ public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigat
 		var id = Guid.NewGuid();
 		var command = new PutDocumentCommand(id.ToString(), null, blittableInvestigator);
 		await session.Advanced.RequestExecutor.ExecuteAsync(command, session.Advanced.Context, token: cancellationToken);
-		var investigatorDto = _mapper.Map<InvestigatorDto>(request);
+		var investigatorDto = _mapper.Map<InvestigatorDto>(investigator);
 		investigatorDto.Id = id;
 		return investigatorDto;
 	}

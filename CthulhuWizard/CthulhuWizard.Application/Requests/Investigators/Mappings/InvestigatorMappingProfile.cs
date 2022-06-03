@@ -8,6 +8,5 @@ public class InvestigatorMappingProfile : Profile {
 	public InvestigatorMappingProfile() {
 		CreateMap<InvestigatorEntity, InvestigatorDto>();
 		CreateMap<CreateInvestigatorCommand, InvestigatorEntity>();
-		CreateMap<CreateInvestigatorCommand, InvestigatorDto>();
 	}
 }

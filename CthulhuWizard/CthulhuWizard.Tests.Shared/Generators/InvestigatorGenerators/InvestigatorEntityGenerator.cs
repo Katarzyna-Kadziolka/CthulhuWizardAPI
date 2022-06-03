@@ -2,7 +2,7 @@
 using CthulhuWizard.Persistence.Models;
 using CthulhuWizard.Persistence.Models.Investigators;
 
-namespace CthulhuWizard.Tests.Shared.Generators;
+namespace CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 
 public sealed class InvestigatorEntityGenerator : Faker<InvestigatorEntity> {
     public InvestigatorEntityGenerator() {

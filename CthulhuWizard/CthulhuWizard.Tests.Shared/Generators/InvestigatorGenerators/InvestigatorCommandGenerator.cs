@@ -4,7 +4,7 @@ using CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigat
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Persistence.Models.Investigators;
 
-namespace CthulhuWizard.Tests.Shared.Generators;
+namespace CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 
 public sealed class InvestigatorCommandGenerator : Faker<CreateInvestigatorCommand> {
     public InvestigatorCommandGenerator() {

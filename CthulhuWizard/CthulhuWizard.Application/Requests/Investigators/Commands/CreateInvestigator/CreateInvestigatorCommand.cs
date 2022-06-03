@@ -12,7 +12,6 @@ public class CreateInvestigatorCommand : ICommand<InvestigatorDto> {
     public Gender Gender{ get; set; }
     public string? BirthPlace { get; set; }
     public string? Residence { get; set; }
-    
     public OccupationDto? Occupation { get; set; }
     public CharacteristicDto? Characteristic { get; set; }
     public List<SkillEntity>? Skills { get; set; }

@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Investigators.Mappings;
 
 public class BackstoryMappingProfile : Profile {
 	public BackstoryMappingProfile() {
-		CreateMap<BackstoryEntity, BackstoryDto>();
+		CreateMap<BackstoryEntity, BackstoryDto>().ReverseMap();
 	}
 }

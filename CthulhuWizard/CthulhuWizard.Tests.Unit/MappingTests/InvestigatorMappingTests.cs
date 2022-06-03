@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CthulhuWizard.Application.Requests.Investigators;
+using CthulhuWizard.Persistence.Models.Investigators;
 using CthulhuWizard.Tests.Shared;
 using CthulhuWizard.Tests.Shared.Generators;
+using CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -33,5 +35,28 @@ public class InvestigatorMappingTests {
         investigatorDto.Equipments.Should().BeEquivalentTo(investigator.Equipments);
         investigatorDto.Skills.Should().BeEquivalentTo(investigator.Skills);
         investigatorDto.Weapons.Should().BeEquivalentTo(investigator.Weapons);
+    }
+    [Test]
+    public void Map_InvestigatorCommand_ShouldReturnInvestigatorEntity() {
+        // Arrange
+        var generator = new InvestigatorCommandGenerator();
+        var createInvestigatorCommand = generator.Generate();
+        // Act
+        var investigatorEntity = _mapper.Map<InvestigatorEntity>(createInvestigatorCommand);
+        // Assert
+        investigatorEntity.Age.Should().Be(createInvestigatorCommand.Age);
+        investigatorEntity.Asset.Should().BeEquivalentTo(createInvestigatorCommand.Asset);
+        investigatorEntity.Skills.Should().BeEquivalentTo(createInvestigatorCommand.Skills);
+        investigatorEntity.Backstory.Should().BeEquivalentTo(createInvestigatorCommand.Backstory);
+        investigatorEntity.Characteristic.Should().BeEquivalentTo(createInvestigatorCommand.Characteristic);
+        investigatorEntity.Gender.Should().Be(createInvestigatorCommand.Gender);
+        investigatorEntity.Occupation.Should().BeEquivalentTo(createInvestigatorCommand.Occupation);
+        investigatorEntity.Residence.Should().Be(createInvestigatorCommand.Residence);
+        investigatorEntity.BirthPlace.Should().Be(createInvestigatorCommand.BirthPlace);
+        investigatorEntity.FirstName.Should().Be(createInvestigatorCommand.FirstName);
+        investigatorEntity.LastName.Should().Be(createInvestigatorCommand.LastName);
+        investigatorEntity.Equipments.Should().BeEquivalentTo(createInvestigatorCommand.Equipments);
+        investigatorEntity.Skills.Should().BeEquivalentTo(createInvestigatorCommand.Skills);
+        investigatorEntity.Weapons.Should().BeEquivalentTo(createInvestigatorCommand.Weapons);
     }
 }

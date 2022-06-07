@@ -25,6 +25,7 @@ public sealed class CreateInvestigatorCommandGenerator : Faker<CreateInvestigato
             .RuleFor(a => a.Asset, 
                 _ => TestMapper.Instance.Map<AssetDto>(new AssetEntityGenerator().Generate()))
             .RuleFor(a => a.Backstory,
-                _ => TestMapper.Instance.Map<BackstoryDto>(new BackstoryEntityGenerator().Generate()));
+                _ => TestMapper.Instance.Map<BackstoryDto>(new BackstoryEntityGenerator().Generate()))
+            .RuleFor(a => a.ImageUrl, f => f.Internet.Url());
     }
 }

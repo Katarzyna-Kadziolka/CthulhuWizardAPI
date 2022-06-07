@@ -15,4 +15,5 @@ public class InvestigatorEntity {
 	public List<EquipmentEntity>? Equipments { get; set; }
 	public AssetEntity? Asset { get; set; }
 	public BackstoryEntity? Backstory { get; set; }
+	public string? ImageUrl { get; set; }
 }

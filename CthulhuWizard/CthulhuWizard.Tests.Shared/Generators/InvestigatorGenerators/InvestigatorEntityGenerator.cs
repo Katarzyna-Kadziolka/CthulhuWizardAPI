@@ -20,6 +20,7 @@ public sealed class InvestigatorEntityGenerator : Faker<InvestigatorEntity> {
             .RuleFor(a => a.Weapons, new List<WeaponEntity>{new WeaponEntityGenerator().Generate()})
             .RuleFor(a => a.Equipments, _ => new List<EquipmentEntity> { new EquipmentEntityGenerator().Generate() })
             .RuleFor(a => a.Asset, _ => new AssetEntityGenerator().Generate())
-            .RuleFor(a => a.Backstory, _ => new BackstoryEntityGenerator().Generate());
+            .RuleFor(a => a.Backstory, _ => new BackstoryEntityGenerator().Generate())
+            .RuleFor(a => a.ImageUrl, f => f.Internet.Url());
     }
 }

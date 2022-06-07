@@ -19,4 +19,5 @@ public class CreateInvestigatorCommand : ICommand<InvestigatorDto> {
     public List<EquipmentEntity>? Equipments { get; set; }
     public AssetDto? Asset { get; set; }
     public BackstoryDto? Backstory { get; set; }
+    public string? ImageUrl { get; set; }
 }

@@ -1,7 +1,7 @@
 ﻿namespace CthulhuWizard.Persistence.Models; 
 
 public class OccupationEntity {
-	public Guid Id { get; set; }
+	public string Id { get; set; }
 	public string? Name { get; set; }
 	public string? ImageUrl { get; set; }
 	public string? Descritpion { get; set; } 
@@ -9,5 +9,6 @@ public class OccupationEntity {
 	public int? SkillPoints { get; set; }
 	public int MinCreditRating { get; set; }
 	public int MaxCreditRating { get; set; }
-	public List<SkillEntity>? Skills { get; set; }
+	public string? Skills { get; set; }
+	public string? SkillPointsPattern { get; set; }
 }

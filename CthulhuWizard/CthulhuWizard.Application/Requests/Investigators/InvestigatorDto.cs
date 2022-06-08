@@ -8,7 +8,7 @@ using MediatR;
 namespace CthulhuWizard.Application.Requests.Investigators; 
 
 public class InvestigatorDto {
-	public Guid Id { get; set; }
+	public string Id { get; set; }
 	public string? FirstName { get; set; }
 	public string? LastName { get; set; }
 	public int Age { get; set; }

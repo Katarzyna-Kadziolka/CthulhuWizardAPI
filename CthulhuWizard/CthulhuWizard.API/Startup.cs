@@ -1,4 +1,5 @@
 ﻿using CthulhuWizard.Application;
+using CthulhuWizard.Application.Extensions;
 using CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator;
 using CthulhuWizard.Persistence.Extensions;
 using CthulhuWizard.Persistence.Options;

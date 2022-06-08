@@ -1,12 +1,29 @@
-﻿namespace CthulhuWizard.Persistence; 
+﻿using CthulhuWizard.Persistence.Contexts;
+using CthulhuWizard.Persistence.DefaultData;
+using Raven.Client.Documents.Session;
+
+namespace CthulhuWizard.Persistence; 
 
 public class Seeder {
-	// - klasa, tóra przyjmuje coś z RavenDb w konstruktorze (store? constructor?) żeby mógł otworzy sesje, zapisać dane, zamknąć sesję
-	// - w program.cs ma być odpalony 
-	// - ma być if istnieje kolekcja to nie dodawaj
-	
-	// klasa C#
-	// - w Persistence
-	// - np. EquipmentDefaultData
-	// - lista obiektow z konkretnymi wartościami startowymi
+	private IRavenDbContext _context;
+	public Seeder(IRavenDbContext dbContext) {
+		_context = dbContext;
+	}
+
+	public void SeedDefaultData() {
+		using var session = _context.Store.OpenSession();
+		AddIfEmpty(session, OccupationDefaultData.Data,x => x.Id.ToString());
+		AddIfEmpty(session, SkillDefaultData.Data, x => x.Id.ToString());
+		AddIfEmpty(session, EquipmentDefaultData.Data, x => x.Id.ToString());
+		AddIfEmpty(session, WeaponDefaultData.Data, x=> x.Id.ToString());
+		session.SaveChanges();
+	}
+
+	private void AddIfEmpty<T>(IDocumentSession session, IEnumerable<T> collectionToAdd, Func<T, string> getKey) {
+		if (!session.Query<T>().Any()) {
+			foreach (var entity in collectionToAdd) {
+				session.Store(entity, getKey(entity));
+			}
+		}
+	}
 }

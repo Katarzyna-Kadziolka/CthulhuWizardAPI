@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CthulhuWizard.Application; 
+namespace CthulhuWizard.Application.Extensions; 
 
 public static class ServicesCollectionExtensions {
 	public static void AddApplication(this IServiceCollection services) {

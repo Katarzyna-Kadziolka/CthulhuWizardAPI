@@ -3,7 +3,7 @@
 namespace CthulhuWizard.Application.Requests.Occupations; 
 
 public class OccupationDto {
-	public Guid Id { get; set; }
+	public string Id { get; set; }
 	public string? Name { get; set; }
 	public string? ImageUrl { get; set; }
 	public string? Descritpion { get; set; } 

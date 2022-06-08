@@ -21,7 +21,7 @@ public class GetEquipmentsQueryHandler : IRequestHandler<GetEquipmentsQuery, Lis
 		var equipments = await session
 		                 .Query<EquipmentEntity>()
 		                 .Search(a => a.Name, $"*{name}*") 
-		                 .Where(a => request.Price == null || a.Price == request.Price)
+		                 .Where(a => request.Price == null || Math.Abs(a.Price - (double) request.Price ) < 0.001 )
 		                 .ToListAsync(cancellationToken);
 		
 		return _mapper.Map<List<EquipmentDto>>(equipments);

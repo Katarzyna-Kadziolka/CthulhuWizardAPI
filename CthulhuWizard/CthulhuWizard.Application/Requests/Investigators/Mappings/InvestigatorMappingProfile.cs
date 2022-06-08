@@ -6,7 +6,8 @@ namespace CthulhuWizard.Application.Requests.Investigators.Mappings;
 
 public class InvestigatorMappingProfile : Profile {
 	public InvestigatorMappingProfile() {
-		CreateMap<InvestigatorEntity, InvestigatorDto>();
+		CreateMap<InvestigatorEntity, InvestigatorDetailsDto>();
 		CreateMap<CreateInvestigatorCommand, InvestigatorEntity>();
+		CreateMap<InvestigatorEntity, InvestigatorDto>();
 	}
 }

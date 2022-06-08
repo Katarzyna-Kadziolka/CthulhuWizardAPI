@@ -1,9 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CthulhuWiard.Tests.Integrations.Extensions;
 using CthulhuWizard.Application.Requests.Investigators;
+using CthulhuWizard.Application.Requests.Investigators.Queries.GetInvestigators;
+using CthulhuWizard.Persistence.Models.Investigators;
+using CthulhuWizard.Tests.Shared;
 using CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 using FluentAssertions;
 using NUnit.Framework;
@@ -24,14 +29,29 @@ public class InvestigatorControllerTests {
         _client.Dispose();
     }
     [Test]
-    public async Task Post_ShouldReturnInvestigatorDto() {
+    public async Task Post_ShouldReturnInvestigatorDetailsDto() {
         // Arrange
         var command = new CreateInvestigatorCommandGenerator().Generate();
         // Act
         var response = await _client.PostAsJsonAsync("api/v1/Investigator", command);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var investigatorDto = await response.Content.DeserializeAsync<InvestigatorDto>();
+        var investigatorDto = await response.Content.DeserializeAsync<InvestigatorDetailsDto>();
         // Assert
         investigatorDto.Should().BeEquivalentTo(command);
+    }
+
+    [Test]
+    public async Task Get_ShouldReturnInvestigatorDtoList() {
+        // Arrange
+        using var testDb = new RavenTestDb();
+        using var session = testDb.Store.OpenSession();
+        var expectedInvestigators =
+            TestMapper.Instance.Map<List<InvestigatorDto>>(session.Query<InvestigatorEntity>().ToList());
+        // Act
+        var response = await _client.GetAsync("api/v1/Investigator");
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var investigators = await response.Content.DeserializeAsync<List<InvestigatorDto>>();
+        // Assert
+        investigators.Should().BeEquivalentTo(expectedInvestigators);
     }
 }

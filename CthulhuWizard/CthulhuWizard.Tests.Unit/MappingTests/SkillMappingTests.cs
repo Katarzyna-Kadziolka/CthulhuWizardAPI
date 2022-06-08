@@ -7,32 +7,23 @@ using CthulhuWizard.Tests.Shared.Generators;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CthulhuWizard.Tests.Unit.MappingTests; 
+namespace CthulhuWizard.Tests.Unit.MappingTests;
 
 public class SkillMappingTests {
-	private static IMapper? _mapper;
-	public SkillMappingTests() {
-		var mappingConfig = new MapperConfiguration(mc
-			=> {
-			mc.AddMaps(typeof(InvestigatorMappingProfile).Assembly);
-		});
-		_mapper = mappingConfig.CreateMapper();
-	}
+    private static IMapper _mapper = TestMapper.Instance;
 
-	[Test]
-	public void Map_SkillEntity_ShouldReturnSkillDto() {
-		// Arrange
-		var generator = new SkillEntityGenerator();
-		var skill = generator.Generate();
-		// Act
-		if (_mapper != null) {
-			var skillDto = _mapper.Map<SkillDto>(skill);
-			// Assert
-			skillDto.Id.Should().Be(skill.Id);
-			skillDto.Name.Should().Be(skill.Name);
-			skillDto.CurrentValue.Should().Be(skill.CurrentValue);
-			skillDto.IsRare.Should().Be(skill.IsRare);
-			skillDto.MinValue.Should().Be(skill.MinValue);
-		}
-	}
+    [Test]
+    public void Map_SkillEntity_ShouldReturnSkillDto() {
+        // Arrange
+        var generator = new SkillEntityGenerator();
+        var skill = generator.Generate();
+        // Act
+        var skillDto = _mapper.Map<SkillDto>(skill);
+        // Assert
+        skillDto.Id.Should().Be(skill.Id);
+        skillDto.Name.Should().Be(skill.Name);
+        skillDto.CurrentValue.Should().Be(skill.CurrentValue);
+        skillDto.IsRare.Should().Be(skill.IsRare);
+        skillDto.MinValue.Should().Be(skill.MinValue);
+    }
 }

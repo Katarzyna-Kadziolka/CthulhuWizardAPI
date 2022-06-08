@@ -16,4 +16,10 @@
       <ProjectReference Include="..\CthulhuWizard.Persistence\CthulhuWizard.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Remove="RavenDBServer\**" />
+        <Compile Remove="RavenDBServer\**" />
+        <EmbeddedResource Remove="RavenDBServer\**" />
+        <None Remove="RavenDBServer\**" />
+    </ItemGroup>
 </Project>

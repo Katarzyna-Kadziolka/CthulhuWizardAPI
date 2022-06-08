@@ -13,28 +13,29 @@ public class InvestigatorMappingTests {
     private static IMapper _mapper = TestMapper.Instance;
 
     [Test]
-    public void Map_InvestigatorEntity_ShouldReturnInvestigatorDto() {
+    public void Map_InvestigatorEntity_ShouldReturnInvestigatorDetailsDto() {
         // Arrange
         var generator = new InvestigatorEntityGenerator();
         var investigator = generator.Generate();
         // Act
-        var investigatorDto = _mapper.Map<InvestigatorDto>(investigator);
+        var investigatorDetailsDto = _mapper.Map<InvestigatorDetailsDto>(investigator);
         // Assert
-        investigatorDto.Age.Should().Be(investigator.Age);
-        investigatorDto.Id.Should().Be(investigator.Id);
-        investigatorDto.Asset.Should().BeEquivalentTo(investigator.Asset);
-        investigatorDto.Skills.Should().BeEquivalentTo(investigator.Skills);
-        investigatorDto.Backstory.Should().BeEquivalentTo(investigator.Backstory);
-        investigatorDto.Characteristic.Should().BeEquivalentTo(investigator.Characteristic);
-        investigatorDto.Gender.Should().Be(investigator.Gender);
-        investigatorDto.Occupation.Should().BeEquivalentTo(investigator.Occupation);
-        investigatorDto.Residence.Should().Be(investigator.Residence);
-        investigatorDto.BirthPlace.Should().Be(investigator.BirthPlace);
-        investigatorDto.FirstName.Should().Be(investigator.FirstName);
-        investigatorDto.LastName.Should().Be(investigator.LastName);
-        investigatorDto.Equipments.Should().BeEquivalentTo(investigator.Equipments);
-        investigatorDto.Skills.Should().BeEquivalentTo(investigator.Skills);
-        investigatorDto.Weapons.Should().BeEquivalentTo(investigator.Weapons);
+        investigatorDetailsDto.Age.Should().Be(investigator.Age);
+        investigatorDetailsDto.Id.Should().Be(investigator.Id);
+        investigatorDetailsDto.Asset.Should().BeEquivalentTo(investigator.Asset);
+        investigatorDetailsDto.Skills.Should().BeEquivalentTo(investigator.Skills);
+        investigatorDetailsDto.Backstory.Should().BeEquivalentTo(investigator.Backstory);
+        investigatorDetailsDto.Characteristic.Should().BeEquivalentTo(investigator.Characteristic);
+        investigatorDetailsDto.Gender.Should().Be(investigator.Gender);
+        investigatorDetailsDto.Occupation.Should().BeEquivalentTo(investigator.Occupation);
+        investigatorDetailsDto.Residence.Should().Be(investigator.Residence);
+        investigatorDetailsDto.BirthPlace.Should().Be(investigator.BirthPlace);
+        investigatorDetailsDto.FirstName.Should().Be(investigator.FirstName);
+        investigatorDetailsDto.LastName.Should().Be(investigator.LastName);
+        investigatorDetailsDto.Equipments.Should().BeEquivalentTo(investigator.Equipments);
+        investigatorDetailsDto.Skills.Should().BeEquivalentTo(investigator.Skills);
+        investigatorDetailsDto.Weapons.Should().BeEquivalentTo(investigator.Weapons);
+        investigatorDetailsDto.ImageUrl.Should().Be(investigator.ImageUrl);
     }
     [Test]
     public void Map_InvestigatorCommand_ShouldReturnInvestigatorEntity() {
@@ -58,5 +59,21 @@ public class InvestigatorMappingTests {
         investigatorEntity.Equipments.Should().BeEquivalentTo(createInvestigatorCommand.Equipments);
         investigatorEntity.Skills.Should().BeEquivalentTo(createInvestigatorCommand.Skills);
         investigatorEntity.Weapons.Should().BeEquivalentTo(createInvestigatorCommand.Weapons);
+        investigatorEntity.ImageUrl.Should().Be(createInvestigatorCommand.ImageUrl);
+    }
+    [Test]
+    public void Map_InvestigatorEntity_ShouldReturnInvestigatorDto() {
+        // Arrange
+        var generator = new InvestigatorEntityGenerator();
+        var investigator = generator.Generate();
+        // Act
+        var investigatorDto = _mapper.Map<InvestigatorDto>(investigator);
+        // Assert
+        investigatorDto.Age.Should().Be(investigator.Age);
+        investigatorDto.Gender.Should().Be(investigator.Gender);
+        investigatorDto.Occupation.Name.Should().Be(investigator.Occupation.Name);
+        investigatorDto.FirstName.Should().Be(investigator.FirstName);
+        investigatorDto.LastName.Should().Be(investigator.LastName);
+        investigatorDto.ImageUrl.Should().Be(investigator.ImageUrl);
     }
 }

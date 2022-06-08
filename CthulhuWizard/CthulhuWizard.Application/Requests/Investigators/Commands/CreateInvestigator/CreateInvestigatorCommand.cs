@@ -5,14 +5,14 @@ using MediatR.AspNet;
 
 namespace CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator;
 
-public class CreateInvestigatorCommand : ICommand<InvestigatorDto> {
+public class CreateInvestigatorCommand : ICommand<InvestigatorDetailsDto> {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public int Age { get; set; }
     public Gender Gender{ get; set; }
     public string? BirthPlace { get; set; }
     public string? Residence { get; set; }
-    public OccupationDto? Occupation { get; set; }
+    public OccupationDetailsDto? Occupation { get; set; }
     public CharacteristicDto? Characteristic { get; set; }
     public List<SkillEntity>? Skills { get; set; }
     public List<WeaponEntity>? Weapons { get; set; }

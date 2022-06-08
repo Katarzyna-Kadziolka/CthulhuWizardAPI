@@ -10,7 +10,7 @@ using NUnit.Framework;
 
 namespace CthulhuWizard.Tests.Unit.HandlersTests.Investigators.Commands; 
 
-public class CreateInvestigatorCommandTests {
+public class CreateInvestigatorCommandHandlerTests {
 
     [Test]
     public async Task Handle_ShouldCreateInvestigator() {

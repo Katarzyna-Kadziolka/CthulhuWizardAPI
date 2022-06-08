@@ -7,7 +7,7 @@ using Raven.Client.Documents.Session;
 
 namespace CthulhuWizard.Application.Requests.Investigators.Commands.CreateInvestigator;
 
-public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigatorCommand, InvestigatorDto> {
+public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigatorCommand, InvestigatorDetailsDto> {
     private readonly IMapper _mapper;
     private readonly IRavenDbContext _context;
 
@@ -16,7 +16,7 @@ public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigat
         _mapper = mapper;
     }
 
-    public async Task<InvestigatorDto> Handle(CreateInvestigatorCommand request, CancellationToken cancellationToken) {
+    public async Task<InvestigatorDetailsDto> Handle(CreateInvestigatorCommand request, CancellationToken cancellationToken) {
         using var session = _context.Store.OpenAsyncSession();
         
         var investigator = _mapper.Map<InvestigatorEntity>(request);
@@ -24,6 +24,6 @@ public class CreateInvestigatorCommandHandler : IRequestHandler<CreateInvestigat
         
         await session.SaveChangesAsync(cancellationToken);
         
-        return _mapper.Map<InvestigatorDto>(investigator);
+        return _mapper.Map<InvestigatorDetailsDto>(investigator);
     }
 }

@@ -9,15 +9,7 @@ using NUnit.Framework;
 namespace CthulhuWizard.Tests.Unit.MappingTests;
 
 public class AssetMappingTests {
-    private IMapper _mapper;
-
-    public AssetMappingTests() {
-        var mappingConfig = new MapperConfiguration(mc
-            => {
-            mc.AddMaps(typeof(InvestigatorMappingProfile).Assembly);
-        });
-        _mapper = mappingConfig.CreateMapper();
-    }
+    private static IMapper _mapper = TestMapper.Instance;
 
     [Test]
     public void Map_AssetEntity_ShouldReturnAssetDto() {

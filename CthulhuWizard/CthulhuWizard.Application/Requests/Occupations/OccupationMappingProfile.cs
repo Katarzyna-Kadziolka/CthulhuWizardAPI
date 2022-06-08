@@ -5,6 +5,7 @@ namespace CthulhuWizard.Application.Requests.Occupations;
 
 public class OccupationMappingProfile : Profile {
 	public OccupationMappingProfile() {
-		CreateMap<OccupationEntity, OccupationDto>().ReverseMap();
+		CreateMap<OccupationEntity, OccupationDetailsDto>().ReverseMap();
+		CreateMap<OccupationEntity, OccupationDto>();
 	}
 }

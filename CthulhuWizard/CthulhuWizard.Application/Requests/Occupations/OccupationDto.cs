@@ -11,5 +11,6 @@ public class OccupationDto {
 	public int? SkillPoints { get; set; }
 	public int MinCreditRating { get; set; }
 	public int MaxCreditRating { get; set; }
-	public List<SkillDto>? Skills { get; set; }
+	public string? Skills { get; set; }
+	public string? SkillPointsPattern { get; set; }
 }

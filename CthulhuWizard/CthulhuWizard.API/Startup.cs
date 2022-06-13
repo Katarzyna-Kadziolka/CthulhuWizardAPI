@@ -34,6 +34,7 @@ public class Startup {
             config => {
                 config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
             });
         services.AddSwaggerGen(
             c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "CthulhuWizard", Version = "v1" }); });

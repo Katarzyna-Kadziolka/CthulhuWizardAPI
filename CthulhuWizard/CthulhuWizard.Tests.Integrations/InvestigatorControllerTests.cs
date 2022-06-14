@@ -6,7 +6,6 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CthulhuWiard.Tests.Integrations.Extensions;
 using CthulhuWizard.Application.Requests.Investigators;
-using CthulhuWizard.Application.Requests.Investigators.Queries.GetInvestigators;
 using CthulhuWizard.Persistence.Models.Investigators;
 using CthulhuWizard.Tests.Shared;
 using CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;

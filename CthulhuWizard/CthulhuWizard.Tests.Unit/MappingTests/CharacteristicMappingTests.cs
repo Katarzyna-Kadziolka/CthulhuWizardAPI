@@ -32,5 +32,8 @@ public class CharacteristicMappingTests {
         characteristicDto.DamageBonus.Should().Be(characteristic.DamageBonus);
         characteristicDto.HitPoints.Should().Be(characteristic.HitPoints);
         characteristicDto.MovementRate.Should().Be(characteristic.MovementRate);
+        characteristic.MagicPoints.Should().Be(characteristic.MagicPoints);
+        characteristic.Sanity.Should().Be(characteristic.Sanity);
+
     }
 }

@@ -5,10 +5,10 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers;
-public class InvestigatorController : BaseApiController {
+public class InvestigatorsController : BaseApiController {
     private readonly IMediator _mediator;
 
-    public InvestigatorController(IMediator mediator) {
+    public InvestigatorsController(IMediator mediator) {
         _mediator = mediator;
     }
 

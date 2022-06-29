@@ -18,6 +18,8 @@ public sealed class CharacteristicEntityGenerator : Faker<CharacteristicEntity> 
             .RuleFor(a => a.Strength, f => f.Random.Int(15, 99))
             .RuleFor(a => a.DamageBonus, f => f.PickRandom<DamageBonus>())
             .RuleFor(a => a.HitPoints, f => f.Random.Int(0, 20))
-            .RuleFor(a => a.MovementRate, f => f.Random.Int(0, 10));
+            .RuleFor(a => a.MovementRate, f => f.Random.Int(0, 10))
+            .RuleFor(a => a.MagicPoints, f => f.Random.Int(15, 99))
+            .RuleFor(a => a.Sanity, f => f.Random.Int(15, 99));
     }
 }

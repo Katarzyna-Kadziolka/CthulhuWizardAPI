@@ -14,4 +14,6 @@ public class CharacteristicEntity {
 	public Build Build { get; set; }
 	public int HitPoints { get; set; }
 	public int MovementRate { get; set; }
+	public int MagicPoints { get; set; }
+	public int Sanity { get; set; }
 }

@@ -16,6 +16,7 @@ public sealed class OccupationEntityGenerator : Faker<OccupationEntity> {
             .RuleFor(a => a.MaxCreditRating, f => f.Random.Int(31, 99))
             .RuleFor(a => a.Skills, f => f.Lorem.Sentence())
             .RuleFor(a => a.SkillPointsPattern, f => f.Lorem.Sentence())
+            .RuleFor(a => a.SuggestedContacts, f => f.Lorem.Sentence())
             .Generate(10);
     }
 }

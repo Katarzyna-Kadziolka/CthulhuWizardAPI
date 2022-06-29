@@ -30,6 +30,7 @@ public class OccupationMappingTests {
         occupationDetailsDto.MaxCreditRating.Should().Be(occupation.MaxCreditRating);
         occupationDetailsDto.MinCreditRating.Should().Be(occupation.MinCreditRating);
         occupationDetailsDto.SkillPointsPattern.Should().Be(occupation.SkillPointsPattern);
+        occupationDetailsDto.SuggestedContacts.Should().Be(occupation.SuggestedContacts);
     }
 
     [Test]

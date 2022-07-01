@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models;
 using MediatR;
 using MediatR.AspNet.Exceptions;
 using Raven.Client.Documents;
-using Raven.Client.Documents.Linq;
 
 namespace CthulhuWizard.Application.Requests.Occupations.Queries.GetOccupationDetails; 
 

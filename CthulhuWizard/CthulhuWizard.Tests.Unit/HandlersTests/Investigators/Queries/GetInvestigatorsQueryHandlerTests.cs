@@ -16,7 +16,7 @@ public class GetInvestigatorsQueryHandlerTests {
     public async Task Handle_ShouldReturnInvestigatorsList() {
         // Arrange
         using var testDb = new RavenTestDb();
-        new TestSeeder(testDb).AddInvestigator();
+        new TestSeeder(testDb).AddInvestigators();
         var request = new GetInvestigatorsQuery();
         var handler = new GetInvestigatorsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();

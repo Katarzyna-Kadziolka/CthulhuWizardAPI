@@ -32,7 +32,7 @@ public class InvestigatorControllerTests {
         // Arrange
         var command = new CreateInvestigatorCommandGenerator().Generate();
         // Act
-        var response = await _client.PostAsJsonAsync("api/v1/Investigator", command);
+        var response = await _client.PostAsJsonAsync("api/v1/Investigators", command);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
         var investigatorDto = await response.Content.DeserializeAsync<InvestigatorDetailsDto>();
         // Assert
@@ -47,7 +47,7 @@ public class InvestigatorControllerTests {
         var expectedInvestigators =
             TestMapper.Instance.Map<List<InvestigatorDto>>(session.Query<InvestigatorEntity>().ToList());
         // Act
-        var response = await _client.GetAsync("api/v1/Investigator");
+        var response = await _client.GetAsync("api/v1/Investigators");
         response.StatusCode.Should().Be(HttpStatusCode.OK);
         var investigators = await response.Content.DeserializeAsync<List<InvestigatorDto>>();
         // Assert

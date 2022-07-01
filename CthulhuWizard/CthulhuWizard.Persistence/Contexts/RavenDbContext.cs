@@ -21,7 +21,7 @@ public class RavenDbContext : IRavenDbContext {
         EnsureDatabaseIsCreated();
     }
     
-    public DocumentStore Store { get; }
+    public IDocumentStore Store { get; }
 
     public void EnsureDatabaseIsCreated() {
         try {

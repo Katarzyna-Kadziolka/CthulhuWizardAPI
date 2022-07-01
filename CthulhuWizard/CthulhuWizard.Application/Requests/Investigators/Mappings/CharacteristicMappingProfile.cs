@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Investigators.Mappings;
 
 public class CharacteristicMappingProfile : Profile {
 	public CharacteristicMappingProfile() {
-		CreateMap<Characteristic, CharacteristicDto>();
+		CreateMap<CharacteristicEntity, CharacteristicDto>().ReverseMap();
 	}
 }

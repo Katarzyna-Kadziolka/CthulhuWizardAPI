@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Weapons;
 
 public class WeaponMappingProfile : Profile {
 	public WeaponMappingProfile() {
-		CreateMap<Weapon, WeaponDto>();
+		CreateMap<WeaponEntity, WeaponDto>();
 	}
 }

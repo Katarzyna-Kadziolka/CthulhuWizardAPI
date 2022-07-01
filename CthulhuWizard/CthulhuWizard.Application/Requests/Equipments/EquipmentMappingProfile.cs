@@ -5,6 +5,6 @@ namespace CthulhuWizard.Application.Requests.Equipments;
 
 public class EquipmentMappingProfile : Profile {
 	public EquipmentMappingProfile() {
-		CreateMap<Equipment, EquipmentDto>();
+		CreateMap<EquipmentEntity, EquipmentDto>();
 	}
 }

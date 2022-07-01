@@ -11,7 +11,7 @@ using FluentAssertions;
 using MediatR.AspNet.Exceptions;
 using NUnit.Framework;
 
-namespace CthulhuWizard.Tests.Unit.HandlersTests.Investigators.Queries; 
+namespace CthulhuWizard.Tests.Unit.HandlersTests.Occupations.Queries; 
 
 public class GetOccupationDetailsQueryHandlerTests {
     [Test]

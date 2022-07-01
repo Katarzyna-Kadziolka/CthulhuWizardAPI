@@ -9,7 +9,7 @@ using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CthulhuWizard.Tests.Unit.HandlersTests.Investigators.Queries; 
+namespace CthulhuWizard.Tests.Unit.HandlersTests.Occupations.Queries; 
 
 public class GetOccupationsQueryHandlerTests {
     [Test]

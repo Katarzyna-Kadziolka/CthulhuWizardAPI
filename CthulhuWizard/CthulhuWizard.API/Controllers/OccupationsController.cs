@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CthulhuWizard.API.Controllers; 
 
-public class OccupationController : BaseApiController {
+public class OccupationsController : BaseApiController {
     private readonly IMediator _mediator;
 
-    public OccupationController(IMediator mediator) {
+    public OccupationsController(IMediator mediator) {
         _mediator = mediator;
     }
 
@@ -19,7 +19,7 @@ public class OccupationController : BaseApiController {
     }
 
     [HttpGet("{id}")]
-    public async Task<OccupationDetailsDto> Get([FromRoute] Guid id) {
+    public async Task<OccupationDetailsDto> GetDetails([FromRoute] Guid id) {
         var query = new GetOccupationDetailsQuery {
             Id = id
         };

@@ -12,9 +12,9 @@ using CthulhuWizard.Tests.Shared.Generators.InvestigatorGenerators;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CthulhuWiard.Tests.Integrations;
+namespace CthulhuWiard.Tests.Integrations.Tests;
 
-public class InvestigatorControllerTests {
+public class InvestigatorsControllerTests {
     private HttpClient _client;
 
     [SetUp]

@@ -42,12 +42,12 @@ public class OccupationsControllerTests {
         occupations.Should().BeEquivalentTo(expectedOccupations);
     }
     [Test]
-    public async Task GetDetails_ShouldReturnOccupationDtoList() {
+    public async Task GetDetails_ShouldReturnOccupationDetailDto() {
         // Arrange
         using var testDb = new RavenTestDb();
         using var session = testDb.Store.OpenSession();
         var occupations =
-            TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
+            TestMapper.Instance.Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
         var expectedOccupation = occupations.First();
         var id = expectedOccupation.Id;
         // Act

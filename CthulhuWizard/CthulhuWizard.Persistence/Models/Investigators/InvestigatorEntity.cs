@@ -1,4 +1,6 @@
-﻿namespace CthulhuWizard.Persistence.Models.Investigators; 
+﻿using CthulhuWizard.Persistence.Models.Occupations;
+
+namespace CthulhuWizard.Persistence.Models.Investigators; 
 
 public class InvestigatorEntity {
 	public string Id { get; set; }

@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models;
+using CthulhuWizard.Persistence.Models.Occupations;
 using MediatR;
 using Raven.Client.Documents;
 

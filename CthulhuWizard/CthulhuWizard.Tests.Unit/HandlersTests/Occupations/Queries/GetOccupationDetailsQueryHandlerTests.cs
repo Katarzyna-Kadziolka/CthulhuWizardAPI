@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Application.Requests.Occupations.Queries.GetOccupationDetails;
 using CthulhuWizard.Persistence.Models;
+using CthulhuWizard.Persistence.Models.Occupations;
 using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
 using MediatR.AspNet.Exceptions;

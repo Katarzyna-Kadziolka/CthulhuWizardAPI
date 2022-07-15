@@ -1,4 +1,4 @@
-﻿namespace CthulhuWizard.Persistence.Models; 
+﻿namespace CthulhuWizard.Persistence.Models.Occupations; 
 
 public class OccupationEntity {
 	public string Id { get; set; }
@@ -10,6 +10,6 @@ public class OccupationEntity {
 	public int? SkillPoints { get; set; }
 	public int MinCreditRating { get; set; }
 	public int MaxCreditRating { get; set; }
-	public string? Skills { get; set; }
-	public string? SkillPointsPattern { get; set; }
+	public List<OccupationSkillSpecificationEntity>? Skills { get; set; }
+	public List<SkillPointsPatternEntity>? SkillPointsPattern { get; set; }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CthulhuWiard.Tests.Integrations.Extensions;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Persistence.Models;
+using CthulhuWizard.Persistence.Models.Occupations;
 using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;

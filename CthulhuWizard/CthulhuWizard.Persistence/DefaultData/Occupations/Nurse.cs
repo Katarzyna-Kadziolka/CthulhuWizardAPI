@@ -5,8 +5,8 @@ using CthulhuWizard.Persistence.Models.Occupations;
 
 namespace CthulhuWizard.Persistence.DefaultData.Occupations; 
 
-public static class Nurse {
-    public static OccupationEntity Seed() {
+public class Nurse : IOccupationFactory {
+    public OccupationEntity Create() {
         return new() {
             Id = Guid.NewGuid().ToString(),
             Name = "Nurse",

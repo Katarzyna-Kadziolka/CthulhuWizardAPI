@@ -5,8 +5,8 @@ using CthulhuWizard.Persistence.Models.Occupations;
 
 namespace CthulhuWizard.Persistence.DefaultData.Occupations; 
 
-public static class Lumberjack {
-    public static OccupationEntity Seed() {
+public class Lumberjack : IOccupationFactory {
+    public OccupationEntity Create() {
         return new() {
             Id = Guid.NewGuid().ToString(),
             Name = "Lumberjack",

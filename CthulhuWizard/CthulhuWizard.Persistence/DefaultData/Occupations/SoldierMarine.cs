@@ -8,7 +8,7 @@ namespace CthulhuWizard.Persistence.DefaultData.Occupations;
 public class SoldierMarine : IOccupationFactory {
     public OccupationEntity Create() {
         return new() {
-            Id = Guid.NewGuid().ToString(),
+            Id = "418ed79c-7e33-46d2-aaeb-3d4c0bab75b7",
             Name = "Soldier / Marine",
             Descritpion =
                 "This refers to the enlisted ranks of the Army and Marines and includes the lowest ranks of " +

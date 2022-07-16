@@ -8,7 +8,7 @@ namespace CthulhuWizard.Persistence.DefaultData.Occupations;
 public class Antiquarian : IOccupationFactory {
     public OccupationEntity Create() {
         return new() {
-            Id = Guid.NewGuid().ToString(),
+            Id = "8568ccf7-c27c-4a87-ad05-5cea353b3e41",
             Name = "Antiquarian",
             Descritpion =
                 "A person who delights in the timeless excellence of design and execution, and in the power " +

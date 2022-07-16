@@ -8,7 +8,7 @@ public class OccupationMappingProfile : Profile {
 	public OccupationMappingProfile() {
 		CreateMap<OccupationEntity, OccupationDetailsDto>().ReverseMap();
 		CreateMap<OccupationEntity, OccupationDto>();
-		CreateMap<OccupationSkillSpecificationEntity, OccupationSkillSpecificationDto>();
-		CreateMap<SkillPointsPatternEntity, SkillPointsPatternDto>();
+		CreateMap<OccupationSkillSpecificationEntity, OccupationSkillSpecificationDto>().ReverseMap();
+		CreateMap<SkillPointsPatternEntity, SkillPointsPatternDto>().ReverseMap();
 	}
 }

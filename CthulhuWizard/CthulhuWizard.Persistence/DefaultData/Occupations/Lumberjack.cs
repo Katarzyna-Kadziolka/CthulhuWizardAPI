@@ -8,7 +8,7 @@ namespace CthulhuWizard.Persistence.DefaultData.Occupations;
 public class Lumberjack : IOccupationFactory {
     public OccupationEntity Create() {
         return new() {
-            Id = Guid.NewGuid().ToString(),
+            Id = "4479b055-6dda-4c0a-b626-ce93e75c04b1",
             Name = "Lumberjack",
             Descritpion =
                 "Laborers include factory workers, mill hands, stevedores, road crews, miners, construction, " +

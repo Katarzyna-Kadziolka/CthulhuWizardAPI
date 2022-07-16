@@ -8,7 +8,7 @@ namespace CthulhuWizard.Persistence.DefaultData.Occupations;
 public class Nurse : IOccupationFactory {
     public OccupationEntity Create() {
         return new() {
-            Id = Guid.NewGuid().ToString(),
+            Id = "abd76e9a-49b8-41f8-a66f-27cc5b2fc002",
             Name = "Nurse",
             Descritpion = "Nurses are trained healthcare assistants, usually working in hospitals, nursing homes, or " +
                           "with General Practitioners.",

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using AutoMapper;
-using CthulhuWizard.Application.Requests.Investigators.Mappings;
+﻿using AutoMapper;
 using CthulhuWizard.Application.Requests.Skills;
 using CthulhuWizard.Tests.Shared;
 using CthulhuWizard.Tests.Shared.Generators;
@@ -20,10 +18,7 @@ public class SkillMappingTests {
         // Act
         var skillDto = _mapper.Map<SkillDto>(skill);
         // Assert
-        skillDto.Id.Should().Be(skill.Id);
         skillDto.Name.Should().Be(skill.Name);
-        skillDto.CurrentValue.Should().Be(skill.CurrentValue);
-        skillDto.IsRare.Should().Be(skill.IsRare);
         skillDto.MinValue.Should().Be(skill.MinValue);
     }
 }

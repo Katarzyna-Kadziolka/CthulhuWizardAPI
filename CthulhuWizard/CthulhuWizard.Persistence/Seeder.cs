@@ -13,7 +13,6 @@ public class Seeder {
 	public void SeedDefaultData() {
 		using var session = _context.Store.OpenSession();
 		AddIfEmpty(session, OccupationDefaultData.Data,x => x.Id.ToString());
-		AddIfEmpty(session, SkillDefaultData.Data, x => x.Id.ToString());
 		AddIfEmpty(session, EquipmentDefaultData.Data, x => x.Id.ToString());
 		AddIfEmpty(session, WeaponDefaultData.Data, x=> x.Id.ToString());
 		session.SaveChanges();

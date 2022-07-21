@@ -16,7 +16,7 @@ public sealed class InvestigatorEntityGenerator : Faker<InvestigatorEntity> {
             .RuleFor(a => a.Residence, f => f.Address.City())
             .RuleFor(a => a.Occupation, _ => new OccupationEntityGenerator().Generate())
             .RuleFor(a => a.Characteristic, _ => new CharacteristicEntityGenerator().Generate())
-            .RuleFor(a => a.Skills, new List<SkillEntity> { new SkillEntityGenerator().Generate() })
+            .RuleFor(a => a.Skills, new List<InvestigatorSkillEntity> { new InvestigatorSkillEntityGenerator().Generate() })
             .RuleFor(a => a.Weapons, new List<WeaponEntity>{new WeaponEntityGenerator().Generate()})
             .RuleFor(a => a.Equipments, _ => new List<EquipmentEntity> { new EquipmentEntityGenerator().Generate() })
             .RuleFor(a => a.Asset, _ => new AssetEntityGenerator().Generate())

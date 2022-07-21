@@ -9,5 +9,6 @@ public class InvestigatorMappingProfile : Profile {
 		CreateMap<InvestigatorEntity, InvestigatorDetailsDto>();
 		CreateMap<CreateInvestigatorCommand, InvestigatorEntity>();
 		CreateMap<InvestigatorEntity, InvestigatorDto>();
+		CreateMap<InvestigatorSkillEntity, InvestigatorSkillDto>().ReverseMap();
 	}
 }

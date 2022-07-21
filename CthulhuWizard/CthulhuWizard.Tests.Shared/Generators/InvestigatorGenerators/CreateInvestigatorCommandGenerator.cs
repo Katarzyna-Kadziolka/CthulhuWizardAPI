@@ -19,7 +19,7 @@ public sealed class CreateInvestigatorCommandGenerator : Faker<CreateInvestigato
                 f => TestMapper.Instance.Map<OccupationDetailsDto>(new OccupationEntityGenerator().Generate()))
             .RuleFor(a => a.Characteristic,
                 _ => TestMapper.Instance.Map<CharacteristicDto>(new CharacteristicEntityGenerator().Generate()))
-            .RuleFor(a => a.Skills, new SkillEntityGenerator().Generate(1))
+            .RuleFor(a => a.Skills, new InvestigatorSkillEntityGenerator().Generate(1))
             .RuleFor(a => a.Weapons, new WeaponEntityGenerator().Generate(1))
             .RuleFor(a => a.Equipments, _ => new EquipmentEntityGenerator().Generate(1))
             .RuleFor(a => a.Asset, 

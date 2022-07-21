@@ -14,7 +14,7 @@ public class CreateInvestigatorCommand : ICommand<InvestigatorDetailsDto> {
     public string? Residence { get; set; }
     public OccupationDetailsDto? Occupation { get; set; }
     public CharacteristicDto? Characteristic { get; set; }
-    public List<SkillEntity>? Skills { get; set; }
+    public List<InvestigatorSkillEntity>? Skills { get; set; }
     public List<WeaponEntity>? Weapons { get; set; }
     public List<EquipmentEntity>? Equipments { get; set; }
     public AssetDto? Asset { get; set; }

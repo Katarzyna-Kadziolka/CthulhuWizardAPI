@@ -17,7 +17,7 @@ public class InvestigatorDetailsDto {
 	public string? Residence { get; set; }
 	public OccupationDetailsDto? Occupation { get; set; }
 	public CharacteristicDto? Characteristic { get; set; }
-	public List<SkillDto>? Skills { get; set; }
+	public List<InvestigatorSkillDto>? Skills { get; set; }
 	public List<WeaponDto>? Weapons { get; set; }
 	public List<EquipmentDto>? Equipments { get; set; }
 	public AssetDto? Asset { get; set; }

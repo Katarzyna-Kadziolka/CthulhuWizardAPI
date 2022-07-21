@@ -12,7 +12,7 @@ public class InvestigatorEntity {
 	public string? Residence { get; set; }
 	public OccupationEntity? Occupation { get; set; }
 	public CharacteristicEntity? Characteristic { get; set; }
-	public List<SkillEntity>? Skills { get; set; }
+	public List<InvestigatorSkillEntity>? Skills { get; set; }
 	public List<WeaponEntity>? Weapons { get; set; }
 	public List<EquipmentEntity>? Equipments { get; set; }
 	public AssetEntity? Asset { get; set; }

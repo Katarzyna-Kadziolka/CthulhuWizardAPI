@@ -24,6 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CthulhuWizard.Application\CthulhuWizard.Application.csproj" />
+      <ProjectReference Include="..\CthulhuWizard.Infrastructure\CthulhuWizard.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

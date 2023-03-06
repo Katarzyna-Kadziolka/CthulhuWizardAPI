@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Integra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Tests.Shared", "CthulhuWizard.Tests.Shared\CthulhuWizard.Tests.Shared.csproj", "{B58E3985-D271-4A54-9C28-592F32C22A26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CthulhuWizard.Infrastructure", "CthulhuWizard.Infrastructure\CthulhuWizard.Infrastructure.csproj", "{86C52ACD-7F4B-423E-9602-7530140C39CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{B58E3985-D271-4A54-9C28-592F32C22A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58E3985-D271-4A54-9C28-592F32C22A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58E3985-D271-4A54-9C28-592F32C22A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C52ACD-7F4B-423E-9602-7530140C39CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C52ACD-7F4B-423E-9602-7530140C39CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C52ACD-7F4B-423E-9602-7530140C39CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C52ACD-7F4B-423E-9602-7530140C39CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AB11D576-25E3-437A-9987-86753006547A} = {A0BEBA3B-8754-465D-A8B9-A1D2BAB63906}

@@ -17,6 +17,12 @@ public class Nurse : IOccupationFactory {
                 new() {
                     HowMany = 1,
                     From = new List<string> {
+                        SkillNames.CreditRating
+                    }
+                },
+                new() {
+                    HowMany = 1,
+                    From = new List<string> {
                         SkillNames.FirstAid
                     }
                 },

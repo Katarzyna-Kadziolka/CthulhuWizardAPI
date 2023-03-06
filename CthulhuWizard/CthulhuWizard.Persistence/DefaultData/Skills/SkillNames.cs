@@ -7,6 +7,7 @@ public class SkillNames {
     public static readonly ArtCraft ArtCraft = new();
     public const string Charm = nameof(Charm);
     public const string Climb = nameof(Climb);
+    public const string CreditRating = "Credit Rating";
     public const string Dodge = nameof(Dodge);
     public const string FastTalk = "Fast Talk";
     public static readonly Fighting Fighting = new();

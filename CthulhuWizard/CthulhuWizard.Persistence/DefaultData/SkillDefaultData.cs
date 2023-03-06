@@ -9,4 +9,5 @@ public static class SkillDefaultData {
             MinValue = 5,
         }
     };
+    // TODO zrobić factorki dla każdego deafult data
 }

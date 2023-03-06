@@ -13,33 +13,93 @@ public class PromptFactory {
         _investigator = investigator;
     }
     public string Create() {
-        _prompt.Append(GetGender(_investigator.Gender));
-        _prompt.Append(GetAge(_investigator.Age));
-        _prompt.Append(GetOccupation(_investigator.Occupation!.Name!));
+        _prompt.Append($", {GetGender(_investigator.Gender)}");
+        _prompt.Append($", {GetAge(_investigator.Age)}");
+        _prompt.Append($", {GetOccupation(_investigator.Occupation!.Name!)}");
+        _prompt.Append($", {GetBodyType(_investigator.Characteristic!.Strength, _investigator.Characteristic.Size)}");
+        _prompt.Append($", {GetAppearance(_investigator.Characteristic.Appearance)}");
 
         return _prompt.ToString();
     }
 
     private static string GetGender(Gender gender) {
         if (gender is Gender.Female or Gender.Male) {
-            return $", {gender.ToString()}";
+            return $"{gender.ToString()}";
         }
 
         return string.Empty;
     }
 
     private static string GetAge(int age) {
-        return $", {age} years old";
+        return $"{age} years old";
     } 
     private static string GetOccupation(string occupation) {
-        return $", {occupation}";
+        return $"{occupation}";
     }
 
     private static string GetBodyType(int strength, int size) {
+        if (strength < 15) {
+            return "";
+        }
+        if (size < 40) {
+            return "";
+        }
         if (strength < 41 && size < 57) {
-            
+            return "skinny";
         }
 
+        if (strength < 41 && size < 74) {
+            return "chubby";
+        }
+
+        if (strength < 41 && size < 90) {
+            return "obese";
+        }
+
+        if (strength < 66 && size < 57) {
+            return "slim";
+        }
+
+        if (strength < 66 && size < 74) {
+            return "average body type";
+        }
+
+        if (strength < 66 && size < 90) {
+            return "mighty";
+        }
+
+        if (strength < 90 && size < 57) {
+            return "athletic";
+        }
+
+        if (strength < 90 && size < 74) {
+            return "muscular";
+        }
+
+        if (strength < 90 && size < 90) {
+            return "very muscular";
+        }
+
+        return string.Empty;
+    }
+
+    private static string GetAppearance(int appearance) {
+        if (appearance < 15) {
+            return "disgusting";
+        }
+        if (appearance < 40) {
+            return "ugly";
+        }
+
+        if (appearance < 66) {
+            return "average appearance";
+        }
+
+        if (appearance < 90) {
+            return "attractive";
+        }
+
+        return "captivating appearance";
     }
 
 }

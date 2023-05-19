@@ -1,4 +1,6 @@
-﻿using CthulhuWizard.Persistence.Options;
+﻿using System.Security.Cryptography.X509Certificates;
+using CthulhuWizard.Persistence.Options;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
@@ -11,11 +13,18 @@ namespace CthulhuWizard.Persistence.Contexts;
 public class RavenDbContext : IRavenDbContext {
     private readonly RavenDbOptions _options;
 
-    public RavenDbContext(IOptions<RavenDbOptions> options) {
+    public RavenDbContext(IOptions<RavenDbOptions> options, IHostEnvironment environment) {
+        X509Certificate2? clientCertificate = null;
+        if (environment.IsProduction()) {
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Auth", "Production.pfx");
+            clientCertificate = new X509Certificate2(path, Environment.GetEnvironmentVariable("RAVENDB_CERT_PASSWORD"));
+        }
+
         _options = options.Value;
         Store = new DocumentStore() {
             Database = _options.DatabaseName,
-            Urls = _options.Urls
+            Urls = _options.Urls,
+            Certificate = clientCertificate
         };
         Store.Initialize();
         EnsureDatabaseIsCreated();

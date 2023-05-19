@@ -20,10 +20,10 @@ public class Startup {
     public IConfiguration Configuration { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services) {
+    public void ConfigureServices(IServiceCollection services, IHostEnvironment environment) {
         services.AddOptions<RavenDbOptions>().Bind(Configuration.GetSection(RavenDbOptions.Database));
         services.AddRavenDbContext();
-        services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
+        services.AddIdentityDbContext(Configuration, environment);
         services.AddApplication();
         services.AddCors();
         services

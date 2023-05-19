@@ -55,18 +55,22 @@ public class PromptFactory {
         if (strength < 41 && size < 90) {
             return "obese";
         }
+        //
+        if (strength < 66) {
+            //enum size smallSize = 57 
+            //mapper wartości gracza na moje enumy mały size, średni sie itd, i wtedy moge oprzeć się o sumy -> wtedy stringi tez mogą być enumami np. slim = 133
+            if (size < 57) {
+                return "slim";
+            }
+            if (size < 74) {
+                return "average body type";
+            }
 
-        if (strength < 66 && size < 57) {
-            return "slim";
+            if (size < 90) {
+                return "mighty";
+            }
         }
-
-        if (strength < 66 && size < 74) {
-            return "average body type";
-        }
-
-        if (strength < 66 && size < 90) {
-            return "mighty";
-        }
+        //
 
         if (strength < 90 && size < 57) {
             return "athletic";
@@ -81,6 +85,7 @@ public class PromptFactory {
         }
 
         return string.Empty;
+        // TODO Jakiś refactor?
     }
 
     private static string GetAppearance(int appearance) {
@@ -102,4 +107,7 @@ public class PromptFactory {
         return "captivating appearance";
     }
 
+    // private static string GetCreditRating(int creditRating) {
+    //     
+    // }
 }

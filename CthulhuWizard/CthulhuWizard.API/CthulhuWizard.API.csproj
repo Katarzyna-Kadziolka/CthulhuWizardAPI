@@ -4,12 +4,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <Version>0.1.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="FluentValidation" Version="11.0.1" />
-        <PackageReference Include="HerokuDbConnector" Version="1.0.0" />
         <PackageReference Include="MicroElements.Swashbuckle.FluentValidation" Version="5.4.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
@@ -25,6 +25,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CthulhuWizard.Application\CthulhuWizard.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

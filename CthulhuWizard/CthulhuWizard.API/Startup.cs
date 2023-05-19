@@ -13,17 +13,19 @@ using Newtonsoft.Json.Converters;
 namespace CthulhuWizard.API;
 
 public class Startup {
-    public Startup(IConfiguration configuration) {
+    public Startup(IConfiguration configuration, IHostEnvironment environment) {
         Configuration = configuration;
+        Environment = environment;
     }
 
     public IConfiguration Configuration { get; }
+    public IHostEnvironment Environment { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
         services.AddOptions<RavenDbOptions>().Bind(Configuration.GetSection(RavenDbOptions.Database));
         services.AddRavenDbContext();
-        services.AddIdentityDbContext(Configuration.GetConnectionString("DefaultConnection"));
+        services.AddIdentityDbContext(Configuration, Environment);
         services.AddApplication();
         services.AddCors();
         services

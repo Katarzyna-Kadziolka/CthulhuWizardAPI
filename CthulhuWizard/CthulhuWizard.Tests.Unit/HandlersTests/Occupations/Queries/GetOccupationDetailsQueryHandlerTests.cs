@@ -36,7 +36,7 @@ public class GetOccupationDetailsQueryHandlerTests {
 
     }
     [Test]
-    public async Task Handle__ShouldThrowNotFoundException() {
+    public async Task Handle_NotExistingId_ShouldThrowNotFoundException() {
         // Arrange
         using var testDb = new RavenTestDb();
         new TestSeeder(testDb).AddOccupations();
@@ -53,6 +53,5 @@ public class GetOccupationDetailsQueryHandlerTests {
         await act.Should()
             .ThrowAsync<NotFoundException>()
             .WithMessage($"Occupation with id {request.Id} not found");
-
     }
 }

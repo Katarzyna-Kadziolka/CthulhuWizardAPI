@@ -2,16 +2,16 @@
 using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models.Investigators;
 using MediatR;
+using MediatR.AspNet.Exceptions;
 using Raven.Client.Documents;
-using SendGrid.Helpers.Errors.Model;
 
 namespace CthulhuWizard.Application.Requests.Investigators.Queries.GetinvestigatorDetails; 
 
-public class GetInvestigatorDetailsHandler : IRequestHandler<GetInvestigatorDetailsdQuery, InvestigatorDetailsDto> {
+public class GetInvestigatorDetailsQueryHandler : IRequestHandler<GetInvestigatorDetailsdQuery, InvestigatorDetailsDto> {
     private readonly IMapper _mapper;
     private readonly IRavenDbContext _context;
 
-    public GetInvestigatorDetailsHandler(IRavenDbContext dbContext, IMapper mapper) {
+    public GetInvestigatorDetailsQueryHandler(IRavenDbContext dbContext, IMapper mapper) {
         _context = dbContext;
         _mapper = mapper;
     }

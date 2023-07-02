@@ -21,7 +21,7 @@ public class GetOccupationDetailsQueryHandler : IRequestHandler<GetOccupationDet
         using var session = _context.Store.OpenAsyncSession();
         var occupation = await session
             .Query<OccupationEntity>()
-            .FirstOrDefaultAsync(a => a.Id.Equals(request.Id));
+            .FirstOrDefaultAsync(a => a.Id.Equals(request.Id), token: cancellationToken);
         if (occupation == null) {
             throw new NotFoundException($"Occupation with id {request.Id} not found");
         }

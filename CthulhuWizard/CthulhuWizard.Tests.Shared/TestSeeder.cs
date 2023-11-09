@@ -20,13 +20,5 @@ public class TestSeeder {
         session.SaveChanges();
         return this;
     }
-
-    public TestSeeder AddOccupations() {
-        using var session = _context.Store.OpenSession();
-        foreach (var occupation in new OccupationEntityGenerator().Generate(10)) {
-            session.Store(occupation); 
-        }
-        session.SaveChanges();
-        return this;
-    }
 }
+

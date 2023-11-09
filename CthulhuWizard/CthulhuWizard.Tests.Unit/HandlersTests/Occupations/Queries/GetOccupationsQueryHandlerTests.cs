@@ -17,11 +17,11 @@ public class GetOccupationsQueryHandlerTests {
     public async Task Handle_ShouldReturnOccupationsList() {
         // Arrange
         using var testDb = new RavenTestDb();
-        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationsQuery();
         var handler = new GetOccupationsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
-        var expectedOccupations = TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
+        var expectedOccupations = TestMapper.Instance
+            .Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
         
         // Act
         var result = await handler.Handle(request, CancellationToken.None);
@@ -30,6 +30,5 @@ public class GetOccupationsQueryHandlerTests {
         // Assert
         result.Should().HaveSameCount(expectedOccupations);
         result.Should().BeEquivalentTo(expectedOccupations);
-
     }
 }

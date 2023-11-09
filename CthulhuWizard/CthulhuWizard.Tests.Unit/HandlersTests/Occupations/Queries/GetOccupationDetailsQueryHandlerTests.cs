@@ -19,11 +19,11 @@ public class GetOccupationDetailsQueryHandlerTests {
     public async Task Handle_ShouldReturnOccupation() {
         // Arrange
         using var testDb = new RavenTestDb();
-        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationDetailsQuery();
         var handler = new GetOccupationDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
-        var occupations = TestMapper.Instance.Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
+        var occupations = TestMapper.Instance
+            .Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
         var expectedOccupation = occupations.First();
         request.Id = Guid.Parse(expectedOccupation.Id!);
         
@@ -33,13 +33,12 @@ public class GetOccupationDetailsQueryHandlerTests {
         
         // Assert
         result.Should().BeEquivalentTo(expectedOccupation);
-
     }
+    
     [Test]
     public async Task Handle_NotExistingId_ShouldThrowNotFoundException() {
         // Arrange
         using var testDb = new RavenTestDb();
-        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationDetailsQuery();
         var handler = new GetOccupationDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();

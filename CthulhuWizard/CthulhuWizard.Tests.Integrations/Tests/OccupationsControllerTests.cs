@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using CthulhuWiard.Tests.Integrations.Extensions;
 using CthulhuWizard.Application.Requests.Occupations;
 using CthulhuWizard.Persistence.Contexts;
-using CthulhuWizard.Persistence.Models;
 using CthulhuWizard.Persistence.Models.Occupations;
 using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
@@ -36,8 +35,9 @@ public class OccupationsControllerTests {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var expectedOccupations =
-            TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
+            TestMapper.Instance.Map<List<OccupationDto>>(occupationsFromDb);
         // Act
         var response = await _client.GetAsync("api/v1/Occupations");
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -50,8 +50,9 @@ public class OccupationsControllerTests {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var occupations =
-            TestMapper.Instance.Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
+            TestMapper.Instance.Map<List<OccupationDetailsDto>>(occupationsFromDb);
         var expectedOccupation = occupations.First();
         var id = expectedOccupation.Id;
         // Act
@@ -66,7 +67,6 @@ public class OccupationsControllerTests {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
         using var session = testDb.Store.OpenSession();
-            TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
         var id = Guid.NewGuid();
         // Act
         var response = await _client.GetAsync($"api/v1/Occupations/{id}");

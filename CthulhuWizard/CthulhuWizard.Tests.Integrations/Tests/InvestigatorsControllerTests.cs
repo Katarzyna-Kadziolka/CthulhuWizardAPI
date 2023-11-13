@@ -49,8 +49,9 @@ public class InvestigatorsControllerTests {
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
         new TestSeeder(testDb).AddInvestigators();
         using var session = testDb.Store.OpenSession();
+        var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
         var expectedInvestigators =
-            TestMapper.Instance.Map<List<InvestigatorDto>>(session.Query<InvestigatorEntity>().ToList());
+            TestMapper.Instance.Map<List<InvestigatorDto>>(investigatorsFromDb);
         // Act
         var response = await _client.GetAsync("api/v1/Investigators");
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -65,8 +66,9 @@ public class InvestigatorsControllerTests {
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
         new TestSeeder(testDb).AddInvestigators();
         using var session = testDb.Store.OpenSession();
+        var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
         var investigators =
-            TestMapper.Instance.Map<List<InvestigatorDetailsDto>>(session.Query<InvestigatorEntity>().ToList());
+            TestMapper.Instance.Map<List<InvestigatorDetailsDto>>(investigatorsFromDb);
         var expectedInvestigator = investigators.First();
         var id = expectedInvestigator.Id;
         // Act

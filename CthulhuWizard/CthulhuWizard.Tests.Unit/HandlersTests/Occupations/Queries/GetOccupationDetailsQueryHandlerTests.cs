@@ -22,8 +22,9 @@ public class GetOccupationDetailsQueryHandlerTests {
         var request = new GetOccupationDetailsQuery();
         var handler = new GetOccupationDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var occupations = TestMapper.Instance
-            .Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
+            .Map<List<OccupationDetailsDto>>(occupationsFromDb);
         var expectedOccupation = occupations.First();
         request.Id = Guid.Parse(expectedOccupation.Id!);
         

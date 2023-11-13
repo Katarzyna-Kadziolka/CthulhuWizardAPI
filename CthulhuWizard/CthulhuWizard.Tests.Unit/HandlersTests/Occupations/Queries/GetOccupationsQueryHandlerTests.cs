@@ -20,8 +20,9 @@ public class GetOccupationsQueryHandlerTests {
         var request = new GetOccupationsQuery();
         var handler = new GetOccupationsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var expectedOccupations = TestMapper.Instance
-            .Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
+            .Map<List<OccupationDto>>(occupationsFromDb);
         
         // Act
         var result = await handler.Handle(request, CancellationToken.None);

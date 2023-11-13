@@ -20,7 +20,8 @@ public class GetInvestigatorsQueryHandlerTests {
         var request = new GetInvestigatorsQuery();
         var handler = new GetInvestigatorsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
-        var expectedInvestigators = TestMapper.Instance.Map<List<InvestigatorDto>>(session.Query<InvestigatorEntity>().ToList());
+        var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
+        var expectedInvestigators = TestMapper.Instance.Map<List<InvestigatorDto>>(investigatorsFromDb);
         
         // Act
         var result = await handler.Handle(request, CancellationToken.None);

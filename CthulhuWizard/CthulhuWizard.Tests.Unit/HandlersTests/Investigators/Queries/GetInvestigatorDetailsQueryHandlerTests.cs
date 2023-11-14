@@ -23,8 +23,9 @@ public class GetInvestigatorDetailsQueryHandlerTests {
         var request = new GetInvestigatorDetailsdQuery();
         var handler = new GetInvestigatorDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
+        var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
         var investigators =
-            TestMapper.Instance.Map<List<InvestigatorDetailsDto>>(session.Query<InvestigatorEntity>().ToList());
+            TestMapper.Instance.Map<List<InvestigatorDetailsDto>>(investigatorsFromDb);
         var expectedInvestigator = investigators.First();
         request.Id = Guid.Parse(expectedInvestigator.Id!);
 

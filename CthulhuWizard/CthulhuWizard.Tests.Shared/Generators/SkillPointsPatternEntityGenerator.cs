@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using CthulhuWizard.Persistence.Models;
 
-namespace CthulhuWizard.Tests.Shared; 
+namespace CthulhuWizard.Tests.Shared.Generators; 
 
 public sealed class SkillPointsPatternEntityGenerator : Faker<SkillPointsPatternEntity> {
     public SkillPointsPatternEntityGenerator() {

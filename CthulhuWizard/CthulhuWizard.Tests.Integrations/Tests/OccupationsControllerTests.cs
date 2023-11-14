@@ -6,21 +6,23 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CthulhuWiard.Tests.Integrations.Extensions;
 using CthulhuWizard.Application.Requests.Occupations;
-using CthulhuWizard.Persistence.Models;
+using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models.Occupations;
 using CthulhuWizard.Tests.Shared;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
 namespace CthulhuWiard.Tests.Integrations.Tests; 
 
 public class OccupationsControllerTests {
     private HttpClient _client;
+    private WebApplicationFactory _factory;
 
     [SetUp]
     public void Setup() {
-        var factory = new WebApplicationFactory();
-        _client = factory.CreateClient();
+        _factory = new WebApplicationFactory();
+        _client = _factory.CreateClient();
     }
 
     [TearDown]
@@ -31,10 +33,12 @@ public class OccupationsControllerTests {
     [Test]
     public async Task Get_ShouldReturnOccupationDtoList() {
         // Arrange
-        using var testDb = new RavenTestDb();
+        var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var expectedOccupations =
-            TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
+            TestMapper.Instance.Map<List<OccupationDto>>(occupationsFromDb);
         // Act
         var response = await _client.GetAsync("api/v1/Occupations");
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -45,10 +49,12 @@ public class OccupationsControllerTests {
     [Test]
     public async Task GetDetails_ShouldReturnOccupationDetailDto() {
         // Arrange
-        using var testDb = new RavenTestDb();
+        var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
+        var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var occupations =
-            TestMapper.Instance.Map<List<OccupationDetailsDto>>(session.Query<OccupationEntity>().ToList());
+            TestMapper.Instance.Map<List<OccupationDetailsDto>>(occupationsFromDb);
         var expectedOccupation = occupations.First();
         var id = expectedOccupation.Id;
         // Act
@@ -61,9 +67,9 @@ public class OccupationsControllerTests {
     [Test]
     public async Task GetDetails_NewGuid_ShouldReturnNotFound() {
         // Arrange
-        using var testDb = new RavenTestDb();
+        var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
-            TestMapper.Instance.Map<List<OccupationDto>>(session.Query<OccupationEntity>().ToList());
         var id = Guid.NewGuid();
         // Act
         var response = await _client.GetAsync($"api/v1/Occupations/{id}");

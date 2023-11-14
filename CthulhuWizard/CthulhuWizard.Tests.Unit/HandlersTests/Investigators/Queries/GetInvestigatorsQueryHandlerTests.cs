@@ -13,14 +13,15 @@ namespace CthulhuWizard.Tests.Unit.HandlersTests.Investigators.Queries;
 
 public class GetInvestigatorsQueryHandlerTests {
     [Test]
-    public async Task Handle_ShouldReturnInvestigatorsList() {
+    public async Task Handle_ShouldReturnInvestigatorsDtoList() {
         // Arrange
         using var testDb = new RavenTestDb();
         new TestSeeder(testDb).AddInvestigators();
         var request = new GetInvestigatorsQuery();
         var handler = new GetInvestigatorsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
-        var expectedInvestigators = TestMapper.Instance.Map<List<InvestigatorDto>>(session.Query<InvestigatorEntity>().ToList());
+        var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
+        var expectedInvestigators = TestMapper.Instance.Map<List<InvestigatorDto>>(investigatorsFromDb);
         
         // Act
         var result = await handler.Handle(request, CancellationToken.None);

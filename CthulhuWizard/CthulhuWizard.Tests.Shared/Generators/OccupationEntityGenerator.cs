@@ -18,10 +18,9 @@ public sealed class OccupationEntityGenerator : Faker<OccupationEntity> {
             .RuleFor(a => a.Skills,
                 new List<OccupationSkillSpecificationEntity> {
                     new OccupationSkillSpecificationEntityGenerator().Generate()
-                } )
-            .RuleFor(a => a.SkillPointsPattern, 
-                new List<SkillPointsPatternEntity>{new SkillPointsPatternEntityGenerator().Generate()})
-            .RuleFor(a => a.SuggestedContacts, f => f.Lorem.Sentence())
-            .Generate(10);
+                })
+            .RuleFor(a => a.SkillPointsPattern,
+                new List<SkillPointsPatternEntity> { new SkillPointsPatternEntityGenerator().Generate() })
+            .RuleFor(a => a.SuggestedContacts, f => f.Lorem.Sentence());
     }
 }

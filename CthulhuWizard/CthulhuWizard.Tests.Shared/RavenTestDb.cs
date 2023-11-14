@@ -7,10 +7,6 @@ namespace CthulhuWizard.Tests.Shared;
 
 public class RavenTestDb : RavenTestDriver, IRavenDbContext {
     private IDocumentStore? _store;
-    public RavenTestDb() {
-        var seeder = new Seeder(this);
-        seeder.SeedDefaultData();
-    }
     protected override void PreInitialize(IDocumentStore documentStore) {
         documentStore.Conventions.MaxNumberOfRequestsPerSession = 50;
     }

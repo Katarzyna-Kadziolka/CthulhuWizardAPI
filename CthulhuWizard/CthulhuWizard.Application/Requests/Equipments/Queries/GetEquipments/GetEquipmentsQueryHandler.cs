@@ -3,6 +3,7 @@ using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models;
 using MediatR;
 using Raven.Client.Documents;
+using Raven.Client.Documents.Linq;
 
 namespace CthulhuWizard.Application.Requests.Equipments.Queries.GetEquipments;
 
@@ -20,8 +21,8 @@ public class GetEquipmentsQueryHandler : IRequestHandler<GetEquipmentsQuery, Lis
 		var name = request.Name ?? "";
 		var equipments = await session
 		                 .Query<EquipmentEntity>()
-		                 .Search(a => a.Name, $"*{name}*") 
-		                 .Where(a => request.Price == null || Math.Abs(a.Price - (double) request.Price ) < 0.001 )
+		                 .Search(a => a.Name, $"*{name}*")
+		                 .Where(a => request.Price == null || a.Price <= request.Price)
 		                 .ToListAsync(cancellationToken);
 		
 		return _mapper.Map<List<EquipmentDto>>(equipments);

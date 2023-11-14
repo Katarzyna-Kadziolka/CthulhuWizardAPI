@@ -14,9 +14,10 @@ namespace CthulhuWizard.Tests.Unit.HandlersTests.Occupations.Queries;
 
 public class GetOccupationsQueryHandlerTests {
     [Test]
-    public async Task Handle_ShouldReturnOccupationsList() {
+    public async Task Handle_ShouldReturnOccupationsDtoList() {
         // Arrange
         using var testDb = new RavenTestDb();
+        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationsQuery();
         var handler = new GetOccupationsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();

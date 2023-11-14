@@ -13,7 +13,7 @@ namespace CthulhuWizard.Tests.Unit.HandlersTests.Investigators.Queries;
 
 public class GetInvestigatorsQueryHandlerTests {
     [Test]
-    public async Task Handle_ShouldReturnInvestigatorsList() {
+    public async Task Handle_ShouldReturnInvestigatorsDtoList() {
         // Arrange
         using var testDb = new RavenTestDb();
         new TestSeeder(testDb).AddInvestigators();

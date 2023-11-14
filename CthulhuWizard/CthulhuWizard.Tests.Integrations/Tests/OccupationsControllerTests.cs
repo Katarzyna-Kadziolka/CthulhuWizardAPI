@@ -34,6 +34,7 @@ public class OccupationsControllerTests {
     public async Task Get_ShouldReturnOccupationDtoList() {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
         var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var expectedOccupations =
@@ -49,6 +50,7 @@ public class OccupationsControllerTests {
     public async Task GetDetails_ShouldReturnOccupationDetailDto() {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
         var occupationsFromDb = session.Query<OccupationEntity>().ToList();
         var occupations =
@@ -66,6 +68,7 @@ public class OccupationsControllerTests {
     public async Task GetDetails_NewGuid_ShouldReturnNotFound() {
         // Arrange
         var testDb = _factory.Services.GetRequiredService<IRavenDbContext>();
+        new TestSeeder(testDb).AddOccupations();
         using var session = testDb.Store.OpenSession();
         var id = Guid.NewGuid();
         // Act

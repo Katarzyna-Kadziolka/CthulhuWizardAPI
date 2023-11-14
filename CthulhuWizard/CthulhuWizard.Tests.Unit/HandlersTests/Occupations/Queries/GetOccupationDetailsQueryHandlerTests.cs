@@ -16,9 +16,10 @@ namespace CthulhuWizard.Tests.Unit.HandlersTests.Occupations.Queries;
 
 public class GetOccupationDetailsQueryHandlerTests {
     [Test]
-    public async Task Handle_ShouldReturnOccupation() {
+    public async Task Handle_ShouldReturnOccupationDto() {
         // Arrange
         using var testDb = new RavenTestDb();
+        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationDetailsQuery();
         var handler = new GetOccupationDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
@@ -40,6 +41,7 @@ public class GetOccupationDetailsQueryHandlerTests {
     public async Task Handle_NotExistingId_ShouldThrowNotFoundException() {
         // Arrange
         using var testDb = new RavenTestDb();
+        new TestSeeder(testDb).AddOccupations();
         var request = new GetOccupationDetailsQuery();
         var handler = new GetOccupationDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();

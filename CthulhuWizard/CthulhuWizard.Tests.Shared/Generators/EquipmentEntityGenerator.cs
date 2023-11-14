@@ -9,7 +9,6 @@ public sealed class EquipmentEntityGenerator : Faker<EquipmentEntity> {
             .RuleFor(a => a.Id, _ => Guid.NewGuid().ToString())
             .RuleFor(a => a.Name, f => f.Lorem.Word())
             .RuleFor(a => a.Price, f => Convert.ToDouble(f.Finance.Amount()))
-            .RuleFor(a => a.Type, f => f.Lorem.Word())
-            .Generate(10);
+            .RuleFor(a => a.Type, f => f.Lorem.Word());
     }
 }

@@ -15,7 +15,6 @@ public sealed class WeaponEntityGenerator : Faker<WeaponEntity> {
             .RuleFor(a => a.UsesPerRound, f => f.Lorem.Sentence())
             .RuleFor(a => a.BulletsInGun, f => f.Lorem.Sentence())
             .RuleFor(a => a.Cost, f => Convert.ToDouble(f.Finance.Amount()))
-            .RuleFor(a => a.Malfunction, f => f.Random.Int(1, 99))
-            .Generate(10);
+            .RuleFor(a => a.Malfunction, f => f.Random.Int(1, 99));
     }
 }

@@ -7,7 +7,6 @@ public sealed class InvestigatorSkillEntityGenerator: Faker<InvestigatorSkillEnt
     public InvestigatorSkillEntityGenerator() {
         StrictMode(true)
             .RuleFor(a => a.Name, f => f.Lorem.Word())
-            .RuleFor(a => a.CurrentValue, f => f.Random.Int(15, 80))
-            .Generate(10);
+            .RuleFor(a => a.CurrentValue, f => f.Random.Int(15, 80));
     }
 }

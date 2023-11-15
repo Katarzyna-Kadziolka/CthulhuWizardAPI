@@ -1,7 +1,7 @@
 ﻿namespace CthulhuWizard.Persistence.Models; 
 
 public class WeaponEntity {
-	public string? Id { get; set; }
+	public string Id { get; set; }
 	public string? Name { get; set; }
 	public string? Skill { get; set; }
 	public bool IsImpale { get; set; }

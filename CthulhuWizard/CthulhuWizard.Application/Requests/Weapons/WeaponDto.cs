@@ -1,6 +1,4 @@
-﻿using CthulhuWizard.Application.Requests.Skills;
-
-namespace CthulhuWizard.Application.Requests.Weapons; 
+﻿namespace CthulhuWizard.Application.Requests.Weapons; 
 
 public class WeaponDto {
 	public string Id { get; set; }

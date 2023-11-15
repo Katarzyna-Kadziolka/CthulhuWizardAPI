@@ -1,9 +1,7 @@
-﻿using CthulhuWizard.Application.Requests.Skills;
-
-namespace CthulhuWizard.Application.Requests.Occupations; 
+﻿namespace CthulhuWizard.Application.Requests.Occupations; 
 
 public class OccupationDetailsDto {
-	public string? Id { get; set; }
+	public string Id { get; set; }
 	public string? Name { get; set; }
 	public string? ImageUrl { get; set; }
 	public string? Descritpion { get; set; }

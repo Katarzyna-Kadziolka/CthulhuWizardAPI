@@ -1,6 +1,6 @@
 ﻿using CthulhuWizard.Persistence.Models;
 
-namespace CthulhuWizard.Persistence.DefaultData; 
+namespace CthulhuWizard.Persistence.DefaultData.Skills; 
 
 public static class SkillDefaultData {
     public static List<SkillEntity> Data = new() {

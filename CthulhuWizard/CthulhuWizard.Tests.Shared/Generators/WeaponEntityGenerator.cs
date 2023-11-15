@@ -8,7 +8,7 @@ public sealed class WeaponEntityGenerator : Faker<WeaponEntity> {
         StrictMode(true)
             .RuleFor(a => a.Id, _ => Guid.NewGuid().ToString())
             .RuleFor(a => a.Name, f => f.Lorem.Word())
-            .RuleFor(a => a.Skill, _ => new SkillEntityGenerator().Generate())
+            .RuleFor(a => a.Skill, f => f.Lorem.Word())
             .RuleFor(a => a.IsImpale, f => f.Random.Bool())
             .RuleFor(a => a.Damage, f => f.Lorem.Sentence())
             .RuleFor(a => a.BaseRange, f => f.Lorem.Sentence())

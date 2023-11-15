@@ -1,7 +1,6 @@
-﻿using CthulhuWizard.Persistence.DefaultData.Occupations;
-using CthulhuWizard.Persistence.Models.Occupations;
+﻿using CthulhuWizard.Persistence.Models.Occupations;
 
-namespace CthulhuWizard.Persistence.DefaultData;
+namespace CthulhuWizard.Persistence.DefaultData.Occupations;
 
 public class OccupationsFactory {
     public static List<OccupationEntity> GetAll() {

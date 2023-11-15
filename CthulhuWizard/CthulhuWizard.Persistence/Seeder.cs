@@ -1,5 +1,7 @@
 ﻿using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.DefaultData;
+using CthulhuWizard.Persistence.DefaultData.Equipments;
+using CthulhuWizard.Persistence.DefaultData.Occupations;
 using Raven.Client.Documents.Session;
 
 namespace CthulhuWizard.Persistence; 

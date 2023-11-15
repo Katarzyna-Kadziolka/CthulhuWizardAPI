@@ -1,4 +1,5 @@
-﻿using CthulhuWizard.Persistence.Models;
+﻿using CthulhuWizard.Persistence.DefaultData.Skills;
+using CthulhuWizard.Persistence.Models;
 
 namespace CthulhuWizard.Persistence.DefaultData; 
 

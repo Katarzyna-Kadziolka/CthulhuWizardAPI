@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Castle.Core.Internal;
 using CthulhuWizard.Persistence.Contexts;
 using CthulhuWizard.Persistence.Models;
 using MediatR;
@@ -18,12 +19,21 @@ public class GetEquipmentsQueryHandler : IRequestHandler<GetEquipmentsQuery, Lis
 
 	public async Task<List<EquipmentDto>> Handle(GetEquipmentsQuery request, CancellationToken cancellationToken) {
 		using var session = _context.Store.OpenAsyncSession();
-		var name = request.Name ?? "";
-		var equipments = await session
-		                 .Query<EquipmentEntity>()
-		                 .Search(a => a.Name, $"*{name}*")
-		                 .Where(a => request.Price == null || a.Price <= request.Price)
-		                 .ToListAsync(cancellationToken);
+		
+		var query = session.Query<EquipmentEntity>();
+		if (request.Name != null) {
+			query = query.Search(a => a.Name, $"*{request.Name}*");
+		}
+
+		if (request.Price != null) {
+			query = query.Where(a => a.Price <= request.Price);
+		}
+		
+		if (request.Type != null) {
+			query = query.Where(a => a.Type == request.Type);
+		}
+
+		var equipments= await query.ToListAsync(cancellationToken);
 		
 		return _mapper.Map<List<EquipmentDto>>(equipments);
 

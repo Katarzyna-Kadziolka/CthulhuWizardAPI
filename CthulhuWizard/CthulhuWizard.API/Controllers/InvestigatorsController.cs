@@ -25,7 +25,7 @@ public class InvestigatorsController : BaseApiController {
 
     [HttpGet("{id}")]
     public async Task<InvestigatorDetailsDto> GetDetails([FromRoute] Guid id) {
-        var query = new GetInvestigatorDetailsdQuery {
+        var query = new GetInvestigatorDetailsQuery {
             Id = id
         };
         return await _mediator.Send(query);

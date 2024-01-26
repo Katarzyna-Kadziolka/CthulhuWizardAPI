@@ -20,7 +20,7 @@ public class GetInvestigatorDetailsQueryHandlerTests {
         // Arrange
         using var testDb = new RavenTestDb();
         new TestSeeder(testDb).AddInvestigators();
-        var request = new GetInvestigatorDetailsdQuery();
+        var request = new GetInvestigatorDetailsQuery();
         var handler = new GetInvestigatorDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
         var investigatorsFromDb = session.Query<InvestigatorEntity>().ToList();
@@ -42,7 +42,7 @@ public class GetInvestigatorDetailsQueryHandlerTests {
         // Arrange
         using var testDb = new RavenTestDb();
         new TestSeeder(testDb).AddInvestigators();
-        var request = new GetInvestigatorDetailsdQuery();
+        var request = new GetInvestigatorDetailsQuery();
         var handler = new GetInvestigatorDetailsQueryHandler(testDb, TestMapper.Instance);
         using var session = testDb.Store.OpenSession();
         request.Id = Guid.Empty;

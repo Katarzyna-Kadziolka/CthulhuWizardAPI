@@ -7,7 +7,7 @@ using Raven.Client.Documents;
 
 namespace CthulhuWizard.Application.Requests.Investigators.Queries.GetinvestigatorDetails; 
 
-public class GetInvestigatorDetailsQueryHandler : IRequestHandler<GetInvestigatorDetailsdQuery, InvestigatorDetailsDto> {
+public class GetInvestigatorDetailsQueryHandler : IRequestHandler<GetInvestigatorDetailsQuery, InvestigatorDetailsDto> {
     private readonly IMapper _mapper;
     private readonly IRavenDbContext _context;
 
@@ -16,7 +16,7 @@ public class GetInvestigatorDetailsQueryHandler : IRequestHandler<GetInvestigato
         _mapper = mapper;
     }
     
-    public async Task<InvestigatorDetailsDto> Handle(GetInvestigatorDetailsdQuery request, CancellationToken cancellationToken) {
+    public async Task<InvestigatorDetailsDto> Handle(GetInvestigatorDetailsQuery request, CancellationToken cancellationToken) {
         using var session = _context.Store.OpenAsyncSession();
         var investigator = await session
             .Query<InvestigatorEntity>()
